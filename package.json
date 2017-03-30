@@ -4,6 +4,7 @@
   "description": "This application is a chabot deployed on Heroku, and uses google's API.ai ",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "npm test"
   },
   "repository": {
