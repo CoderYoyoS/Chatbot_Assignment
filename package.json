@@ -1,0 +1,19 @@
+{
+  "name": "chatbotassignment",
+  "version": "1.0.0",
+  "description": "This application is a chabot deployed on Heroku, and uses google's API.ai ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderYoyoS/Chatbot_Assignment.git"
+  },
+  "author": "Aaron Ward, Brian Kelly, Daire Homan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderYoyoS/Chatbot_Assignment/issues"
+  },
+  "homepage": "https://github.com/CoderYoyoS/Chatbot_Assignment#readme"
+}
