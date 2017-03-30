@@ -1,3 +1,5 @@
+'use strict';
+
 const config = require('./config');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -26,5 +28,29 @@ app.get('/webhook', function (req, res) {
         res.send('Invalid verify token');
     }
 });
+
+
+function verifyRequestSignature(req, res, buf) {
+	var signature = req.headers["x-hub-signature"];
+
+	if (!signature) {
+		throw new Error('Couldn\'t validate the signature.');
+	} else {
+		var elements = signature.split('=');
+		var method = elements[0];
+		var signatureHash = elements[1];
+
+		var expectedHash = crypto.createHmac('sha1', config.FB_APP_SECRET)
+			.update(buf)
+			.digest('hex');
+
+		if (signatureHash != expectedHash) {
+			throw new Error("Couldn't validate the request signature.");
+		}
+	}
+}
+
+
+
 
 /************************* */
