@@ -15,6 +15,8 @@
   "bugs": {
     "url": "https://github.com/CoderYoyoS/Chatbot_Assignment/issues"
   },
-  "homepage": "https://github.com/CoderYoyoS/Chatbot_Assignment#readme"
+  "homepage": "https://github.com/CoderYoyoS/Chatbot_Assignment#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
 }
-    
