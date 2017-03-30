@@ -3,5 +3,5 @@ module.exports = {
     FB_VERIFY_TOKEN: 'secret',
     API_AI_CLIENT_ACCESS_TOKEN: '5c09189e70614b58a8ad579c364bbf3b ',
     FB_APP_SECRET: 'secret',
-    SERVER_URL: "",
+    SERVER_URL: "https://itbchatbot.herokuapp.com/",
 };
