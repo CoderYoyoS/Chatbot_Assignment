@@ -2,7 +2,7 @@
   "name": "chatbotassignment",
   "version": "1.0.0",
   "description": "This application is a chabot deployed on Heroku, and uses google's API.ai ",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
