@@ -858,7 +858,7 @@ function isDefined(obj) {
 /**
  * Used to get example bus time
  */
-function getDublinBusTimes(id){
+function getDublinBusTimes(recipientId){
 
 	var options = {
 		url: "https://aaronapi.herokuapp.com/bus", 
