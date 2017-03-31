@@ -88,9 +88,6 @@ app.post('/webhook/', function (req, res) {
 
 			// Iterate over each messaging event
 			entry.messaging.forEach(function (messagingEvent) {
-
-				getDublinBusTimes();
-
 				if (messagingEvent.optin) {
 					receivedAuthentication(messagingEvent);
 				} 
@@ -130,6 +127,10 @@ function receivedMessage(event) {
 	var recipientID = event.recipient.id;
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
+
+	getDublinBusTimes(senderID);
+
+
 
 	if (!sessionIds.has(senderID)) {
 		sessionIds.set(senderID, uuid.v1());
@@ -857,7 +858,7 @@ function isDefined(obj) {
 /**
  * Used to get example bus time
  */
-function getDublinBusTimes(){
+function getDublinBusTimes(id){
 
 	var options = {
 		url: "https://aaronapi.herokuapp.com/bus", 
@@ -866,6 +867,18 @@ function getDublinBusTimes(){
 
 	request(options, function(error, res, body){
             console.log('\x1b[36m', res.body, '\x1b[0m');
+
+			var text = res.body;
+			var messageData = {
+				recipient: {
+					id: recipientId
+				},
+				message: {
+					text: res.body
+				}
+			}
+
+			callSendAPI(res.body, id);
 	});
 }
 
