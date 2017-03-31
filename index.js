@@ -865,7 +865,7 @@ function getDublinBusTimes(){
 	}
 
 	request(options, function(error, res, body){
-            console.log('\x1b[36m', res, '\x1b[0m');
+            console.log('\x1b[36m', res.body, '\x1b[0m');
 	});
 }
 
