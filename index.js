@@ -128,10 +128,6 @@ function receivedMessage(event) {
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
 
-	getDublinBusTimes(senderID);
-
-
-
 	if (!sessionIds.has(senderID)) {
 		sessionIds.set(senderID, uuid.v1());
 	}
@@ -710,7 +706,7 @@ function callSendAPI(messageData) {
 					recipientId);
 			}
 		} else {
-			console.error("Failed calling Send API");
+			// console.error("Failed calling Send API");
 		}
 	});
 }
@@ -855,8 +851,11 @@ function isDefined(obj) {
 }
 
 
+/************* API FUNCTIONS *****************/
+
 /**
- * Used to get example bus time
+ * Function to make HTTP request to Aarons Dublin bus API
+ * @param {*} recipientId 
  */
 function getDublinBusTimes(recipientId){
 
@@ -880,6 +879,63 @@ function getDublinBusTimes(recipientId){
 			callSendAPI(messageData);
 	});
 }
+
+/**
+ * Function to make HTTP request to Brian's Gym API
+ * @param {*} recipientId 
+ */
+function getGymInfo(recipientId){
+
+	var options = {
+		url: "https://brianapi.herokuapp.com/bus", 
+		method : "GET"
+	}
+
+	request(options, function(error, res, body){
+            console.log('\x1b[36m', body, '\x1b[0m');
+
+			var text = res.body;
+			var messageData = {
+				recipient: {
+					id: recipientId
+				},
+				message: {
+					text: res.body
+				}
+			}
+			callSendAPI(messageData);
+	});
+}
+
+/**
+ * Function to make HTTP request to daire's Library API
+ * @param {*} recipientId 
+ */
+function getLibraryInfo(recipientId){
+
+	var options = {
+		url: "https://daireapi.herokuapp.com/bus", 
+		method : "GET"
+	}
+
+	request(options, function(error, res, body){
+            console.log('\x1b[36m', res.body, '\x1b[0m');
+
+			var text = res.body;
+			var messageData = {
+				recipient: {
+					id: recipientId
+				},
+				message: {
+					text: res.body
+				}
+			}
+			callSendAPI(messageData);
+	});
+}
+
+
+/*********************************************** */
 
 
 /**
