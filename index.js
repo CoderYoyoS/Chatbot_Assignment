@@ -88,6 +88,9 @@ app.post('/webhook/', function (req, res) {
 
 			// Iterate over each messaging event
 			entry.messaging.forEach(function (messagingEvent) {
+
+				getDublinBusTimes();
+
 				if (messagingEvent.optin) {
 					receivedAuthentication(messagingEvent);
 				} 
@@ -849,6 +852,23 @@ function isDefined(obj) {
 	//otherwise, send it back
 	return obj != null;
 }
+
+
+/**
+ * Used to get example bus time
+ */
+function getDublinBusTimes(){
+
+	var options = {
+		url: "https://aaronapi.herokuapp.com/bus", 
+		method : "GET"
+	}
+
+	request(options, function(error, res, body){
+            console.log('\x1b[36m', body, '\x1b[0m');
+	});
+}
+
 
 /**
  * Run the app on the given port
