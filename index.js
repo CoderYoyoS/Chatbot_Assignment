@@ -1,13 +1,13 @@
 'use strict';
 
-const apiai = require('apiai');
 const config = require('./config');
+const apiai = require('apiai');
 const express = require('express');
+const uuid = require('uuid');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
-const uuid = require('uuid');
 
 
 /**
@@ -104,7 +104,7 @@ app.post('/webhook/', function (req, res) {
 					receivedMessageRead(messagingEvent);
 				}
 				 else if (messagingEvent.account_linking) {
-					receivedAccountLink(messagingEvent);
+					// receivedAccountLink(messagingEvent);
 				} else {
 					Console.log("Unknown event type ..")
 				}
@@ -215,7 +215,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 }
 
 
-
+/**
+ * Handles the kind of messages that get sent
+ * @param {*} message 
+ * @param {*} sender 
+ */
 function handleMessage(message, sender) {
 	switch (message.type) {
 
@@ -259,7 +263,8 @@ function handleMessage(message, sender) {
 
 
 /**
- * 
+ * These are used for sending cards to
+ * facebook user
  * @param {*} messages 
  * @param {*} sender 
  */
@@ -301,6 +306,11 @@ function handleCardMessages(messages, sender) {
 }
 
 
+/**
+ * Handles the responsed from API.ai
+ * @param {*} sender 
+ * @param {*} response 
+ */
 function handleApiAiResponse(sender, response) {
 	let responseText = response.result.fulfillment.speech;
 	let responseData = response.result.fulfillment.data;
@@ -311,23 +321,30 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 
+	//isDefined() is a function used to check that the variables have a value
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
+		
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
 		let timeout = 0;
-		for (var i = 0; i < messages.length; i++) {
 
+		for (var i = 0; i < messages.length; i++) {
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
 
 				timeout = (i - 1) * timeoutInterval;
+
 				setTimeout(handleCardMessages.bind(null, cardTypes, sender), timeout);
+				
 				cardTypes = [];
 				timeout = i * timeoutInterval;
+				
 				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
-			} else if ( messages[i].type == 1 ) {
+			} 
+			else if (messages[i].type == 1) {
 				cardTypes.push(messages[i]);
-			} else {
+			} 
+			else {
 				timeout = i * timeoutInterval;
 				setTimeout(handleMessage.bind(null, messages[i], sender), timeout);
 			}
@@ -335,28 +352,39 @@ function handleApiAiResponse(sender, response) {
 			previousType = messages[i].type;
 
 		}
-	} else if (responseText == '' && !isDefined(action)) {
+	} 
+	//If the response does not have a value
+	else if (responseText == '' && !isDefined(action)) {
 		//api ai could not evaluate input.
-		console.log('Unknown query' + response.result.resolvedQuery);
+		// console.log('Unknown query' + response.result.resolvedQuery);
 		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
-	} else if (isDefined(action)) {
+	}
+	else if (isDefined(action)) {
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
-	} else if (isDefined(responseData) && isDefined(responseData.facebook)) {
+	} 
+	else if (isDefined(responseData) && isDefined(responseData.facebook)) {
 		try {
-			console.log('Response as formatted message' + responseData.facebook);
+			// console.log('Response as formatted message' + responseData.facebook);
 			sendTextMessage(sender, responseData.facebook);
 		} catch (err) {
 			sendTextMessage(sender, err.message);
 		}
 	} else if (isDefined(responseText)) {
-
 		sendTextMessage(sender, responseText);
 	}
 }
 
+/**
+ * Used to send messages to APi.ai
+ * @param {*} sender 
+ * @param {*} text 
+ */
 function sendToApiAi(sender, text) {
 
+	//sends the typing bubble to the sender until 
+	//a response is given
 	sendTypingOn(sender);
+	
 	let apiaiRequest = apiAiService.textRequest(text, {
 		sessionId: sessionIds.get(sender)
 	});
@@ -371,9 +399,12 @@ function sendToApiAi(sender, text) {
 	apiaiRequest.end();
 }
 
-
-
-
+/**
+ * Called when a message is text Handle
+ * sent to the user
+ * @param {*} recipientId 
+ * @param {*} text 
+ */
 function sendTextMessage(recipientId, text) {
 	var messageData = {
 		recipient: {
@@ -386,9 +417,10 @@ function sendTextMessage(recipientId, text) {
 	callSendAPI(messageData);
 }
 
-/*
- * Send an image using the Send API.
- *
+/**
+ * Send an image to the user
+ * @param {*} recipientId 
+ * @param {*} imageUrl 
  */
 function sendImageMessage(recipientId, imageUrl) {
 	var messageData = {
@@ -404,13 +436,12 @@ function sendImageMessage(recipientId, imageUrl) {
 			}
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
-/*
- * Send a Gif using the Send API.
- *
+/**
+ * send a gif to the user
+ * @param {*} recipientId 
  */
 function sendGifMessage(recipientId) {
 	var messageData = {
@@ -421,12 +452,11 @@ function sendGifMessage(recipientId) {
 			attachment: {
 				type: "image",
 				payload: {
-					url: config.SERVER_URL + "/assets/instagram_logo.gif"
+					url: config.SERVER_URL + "/assets/<filename>"
 				}
 			}
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
@@ -443,7 +473,7 @@ function sendAudioMessage(recipientId) {
 			attachment: {
 				type: "audio",
 				payload: {
-					url: config.SERVER_URL + "/assets/sample.mp3"
+					url: config.SERVER_URL + "/assets/<filename>"
 				}
 			}
 		}
@@ -452,9 +482,10 @@ function sendAudioMessage(recipientId) {
 	callSendAPI(messageData);
 }
 
-/*
- * Send a video using the Send API.
- * example videoName: "/assets/allofus480.mov"
+/**
+ * Used to send files to the user
+ * @param {*} recipientId 
+ * @param {*} videoName 
  */
 function sendVideoMessage(recipientId, videoName) {
 	var messageData = {
@@ -470,13 +501,13 @@ function sendVideoMessage(recipientId, videoName) {
 			}
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
-/*
- * Send a video using the Send API.
- * example fileName: fileName"/assets/test.txt"
+/**
+ * Used to send files to user
+ * @param {*} recipientId 
+ * @param {*} fileName 
  */
 function sendFileMessage(recipientId, fileName) {
 	var messageData = {
@@ -496,11 +527,11 @@ function sendFileMessage(recipientId, fileName) {
 	callSendAPI(messageData);
 }
 
-
-
-/*
- * Send a button message using the Send API.
- *
+/**
+ * Send a button message to the user
+ * @param {*} recipientId 
+ * @param {*} text 
+ * @param {*} buttons 
  */
 function sendButtonMessage(recipientId, text, buttons) {
 	var messageData = {
@@ -518,11 +549,14 @@ function sendButtonMessage(recipientId, text, buttons) {
 			}
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
-
+/**
+ * Generic template message
+ * @param {*} recipientId 
+ * @param {*} elements 
+ */
 function sendGenericMessage(recipientId, elements) {
 	var messageData = {
 		recipient: {
@@ -538,45 +572,16 @@ function sendGenericMessage(recipientId, elements) {
 			}
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
-
-function sendReceiptMessage(recipientId, recipient_name, currency, payment_method,
-							timestamp, elements, address, summary, adjustments) {
-	// Generate a random receipt ID as the API requires a unique ID
-	var receiptId = "order" + Math.floor(Math.random() * 1000);
-
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "template",
-				payload: {
-					template_type: "receipt",
-					recipient_name: recipient_name,
-					order_number: receiptId,
-					currency: currency,
-					payment_method: payment_method,
-					timestamp: timestamp,
-					elements: elements,
-					address: address,
-					summary: summary,
-					adjustments: adjustments
-				}
-			}
-		}
-	};
-
-	callSendAPI(messageData);
-}
-
-/*
- * Send a message with Quick Reply buttons.
- *
+/**
+ * Quick reply function to prevent user
+ * having to type answers
+ * @param {*} recipientId 
+ * @param {*} text 
+ * @param {*} replies 
+ * @param {*} metadata 
  */
 function sendQuickReply(recipientId, text, replies, metadata) {
 	var messageData = {
@@ -589,13 +594,12 @@ function sendQuickReply(recipientId, text, replies, metadata) {
 			quick_replies: replies
 		}
 	};
-
 	callSendAPI(messageData);
 }
 
-/*
- * Send a read receipt to indicate the message has been read
- *
+/**
+ * Show the used that the message has been seen
+ * @param {*} recipientId 
  */
 function sendReadReceipt(recipientId) {
 
@@ -609,26 +613,24 @@ function sendReadReceipt(recipientId) {
 	callSendAPI(messageData);
 }
 
-/*
- * Turn typing indicator on
- *
+/**
+ * Send the typing bubble to the user
+ * @param {*} recipientId 
  */
 function sendTypingOn(recipientId) {
-
-
 	var messageData = {
 		recipient: {
 			id: recipientId
 		},
 		sender_action: "typing_on"
 	};
-
 	callSendAPI(messageData);
 }
 
-/*
- * Turn typing indicator off
- *
+
+/**
+ * Turn the typing bubble off
+ * @param {*} recipientId 
  */
 function sendTypingOff(recipientId) {
 
@@ -639,38 +641,14 @@ function sendTypingOff(recipientId) {
 		},
 		sender_action: "typing_off"
 	};
-
 	callSendAPI(messageData);
 }
 
-/*
- * Send a message with the account linking call-to-action
- *
+
+/**
+ * Used to greet the user by their first name 
+ * @param {*} userId 
  */
-function sendAccountLinking(recipientId) {
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "template",
-				payload: {
-					template_type: "button",
-					text: "Welcome. Link your account.",
-					buttons: [{
-						type: "account_link",
-						url: config.SERVER_URL + "/authorize"
-          }]
-				}
-			}
-		}
-	};
-
-	callSendAPI(messageData);
-}
-
-
 function greetUserText(userId) {
 	//first read user firstname
 	request({
@@ -680,18 +658,13 @@ function greetUserText(userId) {
 		}
 
 	}, function (error, response, body) {
+		//iff theire is no error
 		if (!error && response.statusCode == 200) {
-
 			var user = JSON.parse(body);
-
+			//Log the users name and gender
 			if (user.first_name) {
-				console.log("FB user: %s %s, %s",
-					user.first_name, user.last_name, user.gender);
-
+				console.log("FB user: %s %s, %s", user.first_name, user.last_name, user.gender);
 				sendTextMessage(userId, "Welcome " + user.first_name + '!');
-			} else {
-				console.log("Cannot get data for fb user with id",
-					userId);
 			}
 		} else {
 			console.error(response.error);
@@ -700,10 +673,12 @@ function greetUserText(userId) {
 	});
 }
 
-/*
+/**
  * Call the Send API. The message data goes in the body. If successful, we'll 
  * get the message id in a response 
- *
+ * 
+ * Sends message to user
+ * @param {*} messageData 
  */
 function callSendAPI(messageData) {
 	request({
@@ -713,11 +688,15 @@ function callSendAPI(messageData) {
 		},
 		method: 'POST',
 		json: messageData
-
 	}, function (error, response, body) {
+
+		//If there is no error
 		if (!error && response.statusCode == 200) {
+
+			//Set the ID of the User
 			var recipientId = body.recipient_id;
 			var messageId = body.message_id;
+
 
 			if (messageId) {
 				console.log("Successfully sent message with id %s to recipient %s",
@@ -727,21 +706,19 @@ function callSendAPI(messageData) {
 					recipientId);
 			}
 		} else {
-			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+			console.error("Failed calling Send API");
 		}
 	});
 }
 
-
-
-/*
+/**
  * Postback Event
- *
  * This event is called when a postback is tapped on a Structured Message. 
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/postback-received
- * 
+ * @param {*} event 
  */
 function receivedPostback(event) {
+
+	//Set variables
 	var senderID = event.sender.id;
 	var recipientID = event.recipient.id;
 	var timeOfPostback = event.timestamp;
@@ -757,19 +734,13 @@ function receivedPostback(event) {
 			break;
 
 	}
-
-	console.log("Received postback for user %d and page %d with payload '%s' " +
-		"at %d", senderID, recipientID, payload, timeOfPostback);
-
 }
 
 
-/*
+/**
  * Message Read Event
- *
- * This event is called when a previously-sent message has been read.
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-read
- * 
+ * This event is called when the bots message has been read by the user
+ * @param {*} event 
  */
 function receivedMessageRead(event) {
 	var senderID = event.sender.id;
@@ -778,36 +749,12 @@ function receivedMessageRead(event) {
 	// All messages before watermark (a timestamp) or sequence have been seen.
 	var watermark = event.read.watermark;
 	var sequenceNumber = event.read.seq;
-
-	console.log("Received message read event for watermark %d and sequence " +
-		"number %d", watermark, sequenceNumber);
 }
 
-/*
- * Account Link Event
- *
- * This event is called when the Link Account or UnLink Account action has been
- * tapped.
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/account-linking
- * 
- */
-function receivedAccountLink(event) {
-	var senderID = event.sender.id;
-	var recipientID = event.recipient.id;
 
-	var status = event.account_linking.status;
-	var authCode = event.account_linking.authorization_code;
-
-	console.log("Received account link event with for user %d with status %s " +
-		"and auth code %s ", senderID, status, authCode);
-}
-
-/*
- * Delivery Confirmation Event
- *
- * This event is sent to confirm the delivery of a message. Read more about 
- * these fields at https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-delivered
- *
+/**
+ * This event is sent to confirm the delivery of a message.
+ * @param {*} event 
  */
 function receivedDeliveryConfirmation(event) {
 	var senderID = event.sender.id;
@@ -819,11 +766,9 @@ function receivedDeliveryConfirmation(event) {
 
 	if (messageIDs) {
 		messageIDs.forEach(function (messageID) {
-			console.log("Received delivery confirmation for message ID: %s",
-				messageID);
+			console.log("Received delivery confirmation for message ID: %s",messageID);
 		});
 	}
-
 	console.log("All message before %d were delivered.", watermark);
 }
 
@@ -847,26 +792,24 @@ function receivedAuthentication(event) {
 	// plugin.
 	var passThroughParam = event.optin.ref;
 
-	console.log("Received authentication for user %d and page %d with pass " +
-		"through param '%s' at %d", senderID, recipientID, passThroughParam,
-		timeOfAuth);
-
-	// When an authentication is received, we'll send a message back to the sender
-	// to let them know it was successful.
+	// console.log("Received authentication for user %d and page %d with pass " +
+	// 	"through param '%s' at %d", senderID, recipientID, passThroughParam,
+	// 	timeOfAuth);
 	sendTextMessage(senderID, "Authentication successful");
 }
 
-/*
+/**
  * Verify that the callback came from Facebook. Using the App Secret from 
  * the App Dashboard, we can verify the signature that is sent with each 
  * callback in the x-hub-signature field, located in the header.
- *
- * https://developers.facebook.com/docs/graph-api/webhooks#setup
- *
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} buf 
  */
 function verifyRequestSignature(req, res, buf) {
 	var signature = req.headers["x-hub-signature"];
 
+	//If their is no signature throw an error
 	if (!signature) {
 		throw new Error('Couldn\'t validate the signature.');
 	} else {
@@ -874,29 +817,42 @@ function verifyRequestSignature(req, res, buf) {
 		var method = elements[0];
 		var signatureHash = elements[1];
 
+		//Make sure that the encrypted facebook secret and the secret
+		//from the Config.js are the same
 		var expectedHash = crypto.createHmac('sha1', config.FB_APP_SECRET)
 			.update(buf)
 			.digest('hex');
 
+		//If they aren't a match, throw an error
 		if (signatureHash != expectedHash) {
 			throw new Error("Couldn't validate the request signature.");
 		}
 	}
 }
 
+/**
+ * Function used to check if a variable has a 
+ * value
+ * @param {*} obj 
+ */
 function isDefined(obj) {
+	//If no value
 	if (typeof obj == 'undefined') {
 		return false;
 	}
 
+	//If no object even passed
 	if (!obj) {
 		return false;
 	}
 
+	//otherwise, send it back
 	return obj != null;
 }
 
-// Spin up the server
+/**
+ * Run the app on the given port
+ */
 app.listen(app.get('port'), function () {
-	console.log('running on port', app.get('port'))
+	console.log('Chatbot server running on port', app.get('port'))
 })
