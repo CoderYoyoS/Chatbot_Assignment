@@ -10,7 +10,10 @@ const app = express();
 const uuid = require('uuid');
 
 
-// Messenger API parameters
+/**
+ * Checking that all the access tokens and secrets
+ * in the config.js exist
+ */
 if (!config.FB_PAGE_TOKEN) {
 	throw new Error('missing FB_PAGE_TOKEN');
 }
@@ -28,28 +31,19 @@ if (!config.SERVER_URL) { //used for ink to static files
 }
 
 
-
+//Set the port of the app
 app.set('port', (process.env.PORT || 5000))
-
 //verify request came from facebook
-app.use(bodyParser.json({
-	verify: verifyRequestSignature
-}));
-
-//serve static files in the public directory
-// app.use(express.static('public'));
-
+app.use(bodyParser.json({verify: verifyRequestSignature}));
 // Process application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-	extended: false
-}))
-
+app.use(bodyParser.urlencoded({extended: false}))
 // Process application/json
 app.use(bodyParser.json())
 
 
-
-
+/**
+ * Set up API.ai with the access token in Config.js
+ */
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 	language: "en",
 	requestSource: "fb"
@@ -58,12 +52,13 @@ const sessionIds = new Map();
 
 // Index route
 app.get('/', function (req, res) {
-	res.send('Hello world, I am a chat bot')
+	res.send('This is the landing page for the chatbot...')
 })
 
-// for Facebook verification
+/**
+ * Facebook webhook
+ */
 app.get('/webhook/', function (req, res) {
-	console.log("request");
 	if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.FB_VERIFY_TOKEN) {
 		res.status(200).send(req.query['hub.challenge']);
 	} else {
@@ -81,50 +76,53 @@ app.get('/webhook/', function (req, res) {
  */
 app.post('/webhook/', function (req, res) {
 	var data = req.body;
-	console.log(JSON.stringify(data));
-
-
+	// console.log(JSON.stringify(data));
 
 	// Make sure this is a page subscription
 	if (data.object == 'page') {
 		// Iterate over each entry
 		// There may be multiple if batched
-		data.entry.forEach(function (pageEntry) {
-			var pageID = pageEntry.id;
-			var timeOfEvent = pageEntry.time;
+		data.entry.forEach(function (entry) {
+			var pageID = entry.id;
+			var timeOfEvent = entry.time;
 
 			// Iterate over each messaging event
-			pageEntry.messaging.forEach(function (messagingEvent) {
+			entry.messaging.forEach(function (messagingEvent) {
 				if (messagingEvent.optin) {
 					receivedAuthentication(messagingEvent);
-				} else if (messagingEvent.message) {
+				} 
+				else if (messagingEvent.message) {
 					receivedMessage(messagingEvent);
-				} else if (messagingEvent.delivery) {
+				} 
+				else if (messagingEvent.delivery) {
 					receivedDeliveryConfirmation(messagingEvent);
-				} else if (messagingEvent.postback) {
+				} 
+				else if (messagingEvent.postback) {
 					receivedPostback(messagingEvent);
-				} else if (messagingEvent.read) {
+				} 
+				else if (messagingEvent.read) {
 					receivedMessageRead(messagingEvent);
-				} else if (messagingEvent.account_linking) {
+				}
+				 else if (messagingEvent.account_linking) {
 					receivedAccountLink(messagingEvent);
 				} else {
-					console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+					Console.log("Unknown event type ..")
 				}
 			});
 		});
 
-		// Assume all went well.
-		// You must send back a 200, within 20 seconds
+		//Send status 200
 		res.sendStatus(200);
 	}
 });
 
-
-
-
-
+/**
+ * Function for receiving messageEvent.Messages
+ * @param {*} event 
+ */
 function receivedMessage(event) {
 
+	//Set variables from json
 	var senderID = event.sender.id;
 	var recipientID = event.recipient.id;
 	var timeOfMessage = event.timestamp;
@@ -133,9 +131,8 @@ function receivedMessage(event) {
 	if (!sessionIds.has(senderID)) {
 		sessionIds.set(senderID, uuid.v1());
 	}
-	//console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
-	//console.log(JSON.stringify(message));
 
+	//Set variables
 	var isEcho = message.is_echo;
 	var messageId = message.mid;
 	var appId = message.app_id;
@@ -146,6 +143,7 @@ function receivedMessage(event) {
 	var messageAttachments = message.attachments;
 	var quickReply = message.quick_reply;
 
+	//check type of messafe
 	if (isEcho) {
 		handleEcho(messageId, appId, metadata);
 		return;
@@ -153,8 +151,7 @@ function receivedMessage(event) {
 		handleQuickReply(senderID, quickReply, messageId);
 		return;
 	}
-
-
+	//Check if it's a text message
 	if (messageText) {
 		//send message to api.ai
 		sendToApiAi(senderID, messageText);
@@ -163,25 +160,52 @@ function receivedMessage(event) {
 	}
 }
 
-
+/**
+ * If a user sends anything that isn't in text format
+ * @param {*} messageAttachments 
+ * @param {*} senderID 
+ */
 function handleMessageAttachments(messageAttachments, senderID){
-	//for now just reply
 	sendTextMessage(senderID, "Attachment received. Thank you.");	
+
 }
 
+
+/**
+ * Function to handle quick reply payload
+ * @param {*} senderID 
+ * @param {*} quickReply 
+ * @param {*} messageId 
+ */
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
-	console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
+
+	// console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
+	
 	//send payload to api.ai
 	sendToApiAi(senderID, quickReplyPayload);
 }
 
-//https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-echo
+/**
+ * Logs metadata of the message recieved by the user
+ * @param {*} messageId 
+ * @param {*} appId 
+ * @param {*} metadata 
+ */
 function handleEcho(messageId, appId, metadata) {
 	// Just logging message echoes to console
 	console.log("Received echo for message %s and app %d with metadata %s", messageId, appId, metadata);
 }
 
+
+/**
+ * Used to handle API.ai responses
+ * @param {*} sender 
+ * @param {*} action 
+ * @param {*} responseText 
+ * @param {*} contexts 
+ * @param {*} parameters 
+ */
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 		default:
@@ -190,49 +214,60 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	}
 }
 
+
+
 function handleMessage(message, sender) {
 	switch (message.type) {
-		case 0: //text
+
+		//If it is text
+		case 0: 
 			sendTextMessage(sender, message.speech);
 			break;
-		case 2: //quick replies
+		
+		//if it a quick reply
+		case 2: 
 			let replies = [];
-			for (var b = 0; b < message.replies.length; b++) {
-				let reply =
-				{
+			for (var i = 0; i < message.replies.length; i++) {
+				let reply =  {
 					"content_type": "text",
-					"title": message.replies[b],
-					"payload": message.replies[b]
+					"title": message.replies[i],
+					"payload": message.replies[i]
 				}
 				replies.push(reply);
 			}
+			//Send a quick Reply 
 			sendQuickReply(sender, message.title, replies);
 			break;
-		case 3: //image
+
+		//If it is an image
+		case 3: 
 			sendImageMessage(sender, message.imageUrl);
 			break;
+
+		//Handle Custom payloads
 		case 4:
-			// custom payload
 			var messageData = {
 				recipient: {
 					id: sender
 				},
 				message: message.payload.facebook
-
 			};
-
 			callSendAPI(messageData);
-
 			break;
 	}
 }
 
 
+/**
+ * 
+ * @param {*} messages 
+ * @param {*} sender 
+ */
 function handleCardMessages(messages, sender) {
 
 	let elements = [];
-	for (var m = 0; m < messages.length; m++) {
-		let message = messages[m];
+	for (var i = 0; i < messages.length; i++) {
+		let message = messages[i];
 		let buttons = [];
 		for (var b = 0; b < message.buttons.length; b++) {
 			let isLink = (message.buttons[b].postback.substring(0, 4) === 'http');
