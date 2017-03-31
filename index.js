@@ -866,9 +866,9 @@ function getDublinBusTimes(recipientId){
 	}
 
 	request(options, function(error, res, body){
-            console.log('\x1b[36m', res.body.text, '\x1b[0m');
+            console.log('\x1b[36m', res.body, '\x1b[0m');
 
-			var text = res.body.text;
+			var text = res.body;
 			var messageData = {
 				recipient: {
 					id: recipientId
@@ -877,7 +877,6 @@ function getDublinBusTimes(recipientId){
 					text: res.body
 				}
 			}
-
 			callSendAPI(messageData);
 	});
 }
