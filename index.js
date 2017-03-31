@@ -878,7 +878,7 @@ function getDublinBusTimes(recipientId){
 				}
 			}
 
-			callSendAPI(res.body, id);
+			callSendAPI(messageData);
 	});
 }
 
