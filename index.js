@@ -128,6 +128,16 @@ function receivedMessage(event) {
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
 
+
+
+	/******** */
+
+	getDublinBusTimes(recipientID, "4747", "39A");
+
+
+	/******** */
+
+
 	if (!sessionIds.has(senderID)) {
 		sessionIds.set(senderID, uuid.v1());
 	}
@@ -732,7 +742,6 @@ function receivedPostback(event) {
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
 			break;
-
 	}
 }
 
@@ -857,10 +866,13 @@ function isDefined(obj) {
  * Function to make HTTP request to Aarons Dublin bus API
  * @param {*} recipientId 
  */
-function getDublinBusTimes(recipientId){
+function getDublinBusTimes(recipientId, stopId, busNum){
+
+
+	
 
 	var options = {
-		url: "https://aaronapi.herokuapp.com/bus", 
+		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum, 
 		method : "GET"
 	}
 
