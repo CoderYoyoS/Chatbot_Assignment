@@ -342,6 +342,11 @@ function handleApiAiResponse(sender, response) {
 
 	sendTypingOff(sender);
 
+
+	console.log(responseText, "\n", messages, "\n", action, "\n", parameters, "\n", contexts);
+
+
+
 	//isDefined() is a function used to check that the variables have a value
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
 		
@@ -381,6 +386,9 @@ function handleApiAiResponse(sender, response) {
 		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
 	}
 	else if (isDefined(action)) {
+
+
+
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 	} 
 	else if (isDefined(responseData) && isDefined(responseData.facebook)) {
