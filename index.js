@@ -1,3 +1,7 @@
+/** 
+ * Use strict directive prevents usage of 
+ * undeclared variables
+ */
 'use strict';
 
 const config = require('./config');
@@ -56,7 +60,7 @@ app.get('/', function (req, res) {
 })
 
 /**
- * Facebook webhook
+ * Facebook webhook code prewritten in facebook docs.
  */
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.FB_VERIFY_TOKEN) {
@@ -205,7 +209,20 @@ function handleEcho(messageId, appId, metadata) {
  * @param {*} parameters 
  */
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
+	
+	var busId = "";
 	switch (action) {
+
+		case "corduff-route-picked" :
+				if(contexts[0].parameters.bus-areas == "Corduff"){
+
+
+					console.log("Corduff was in the parameters");
+					console.log(contexts[0].parameters.bus_id.original);
+
+					
+				}
+			break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -386,10 +403,12 @@ function sendToApiAi(sender, text) {
 	//a response is given
 	sendTypingOn(sender);
 	
+	//Send message to API.ai
 	let apiaiRequest = apiAiService.textRequest(text, {
 		sessionId: sessionIds.get(sender)
 	});
 
+	//Wait for response to API.ai
 	apiaiRequest.on('response', (response) => {
 		if (isDefined(response.result)) {
 			handleApiAiResponse(sender, response);
@@ -805,6 +824,8 @@ function receivedAuthentication(event) {
  * @param {*} buf 
  */
 function verifyRequestSignature(req, res, buf) {
+
+	//read the signature from the request header
 	var signature = req.headers["x-hub-signature"];
 
 	//If their is no signature throw an error
