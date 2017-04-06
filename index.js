@@ -217,7 +217,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 
 		case "corduff-route-picked" :
-				if(contexts[0].parameters.bus_areas == "Corduff"){
+				
+				console.log('\x1b[36m', "TEST", '\x1b[0m')
+
+				if(parameters.bus_areas == "Corduff"){
 
 
 					console.log("Corduff was in the parameters");
