@@ -877,6 +877,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 			}
 			callSendAPI(messageData);
 	});
+	callSendAPI(messageData);
 }
 
 /**
