@@ -62,7 +62,7 @@ app.get('/webhook/', function (req, res) {
 	if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === config.FB_VERIFY_TOKEN) {
 		res.status(200).send(req.query['hub.challenge']);
 	} else {
-		console.error("Failed validation. Make sure the validation tokens match.");
+		console.error("Verification was not valid.");
 		res.sendStatus(403);
 	}
 })
@@ -88,6 +88,10 @@ app.post('/webhook/', function (req, res) {
 
 			// Iterate over each messaging event
 			entry.messaging.forEach(function (messagingEvent) {
+
+				getDublinBusTimes(recipientID, "4747", "39A");
+
+
 				if (messagingEvent.optin) {
 					receivedAuthentication(messagingEvent);
 				} 
@@ -103,9 +107,7 @@ app.post('/webhook/', function (req, res) {
 				else if (messagingEvent.read) {
 					receivedMessageRead(messagingEvent);
 				}
-				 else if (messagingEvent.account_linking) {
-					// receivedAccountLink(messagingEvent);
-				} else {
+				else {
 					Console.log("Unknown event type ..")
 				}
 			});
@@ -127,15 +129,6 @@ function receivedMessage(event) {
 	var recipientID = event.recipient.id;
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
-
-
-
-	/******** */
-
-	// getDublinBusTimes(recipientID, "4747", "39A");
-
-
-	/******** */
 
 
 	if (!sessionIds.has(senderID)) {
@@ -177,7 +170,6 @@ function receivedMessage(event) {
  */
 function handleMessageAttachments(messageAttachments, senderID){
 	sendTextMessage(senderID, "Attachment received. Thank you.");	
-
 }
 
 
@@ -231,6 +223,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
  * @param {*} sender 
  */
 function handleMessage(message, sender) {
+
+
+	
 	switch (message.type) {
 
 		//If it is text
@@ -715,8 +710,6 @@ function callSendAPI(messageData) {
 				console.log("Successfully called Send API for recipient %s",
 					recipientId);
 			}
-		} else {
-			// console.error("Failed calling Send API");
 		}
 	});
 }
@@ -867,10 +860,6 @@ function isDefined(obj) {
  * @param {*} recipientId 
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
-
-
-	
-
 	var options = {
 		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum, 
 		method : "GET"
