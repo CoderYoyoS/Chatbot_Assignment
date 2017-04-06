@@ -132,7 +132,7 @@ function receivedMessage(event) {
 
 	/******** */
 
-	getDublinBusTimes(recipientID, "4747", "39A");
+	// getDublinBusTimes(recipientID, "4747", "39A");
 
 
 	/******** */
