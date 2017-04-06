@@ -210,6 +210,9 @@ function handleEcho(messageId, appId, metadata) {
  */
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
+	console.log("ACTION WAS ------ " + action);
+
+
 	var busId = "";
 	switch (action) {
 
@@ -220,7 +223,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					console.log("Corduff was in the parameters");
 					console.log(contexts[0].parameters.bus_id.original);
 
-					
+
 				}
 			break;
 		default:
