@@ -88,10 +88,6 @@ app.post('/webhook/', function (req, res) {
 
 			// Iterate over each messaging event
 			entry.messaging.forEach(function (messagingEvent) {
-
-				getDublinBusTimes(recipientID, "4747", "39A");
-
-
 				if (messagingEvent.optin) {
 					receivedAuthentication(messagingEvent);
 				} 
@@ -156,8 +152,10 @@ function receivedMessage(event) {
 	}
 	//Check if it's a text message
 	if (messageText) {
+
+		getDublinBusTimes(recipientID, "4747", "39A");
 		//send message to api.ai
-		sendToApiAi(senderID, messageText);
+		// sendToApiAi(senderID, messageText);
 	} else if (messageAttachments) {
 		handleMessageAttachments(messageAttachments, senderID);
 	}
