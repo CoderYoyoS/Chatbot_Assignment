@@ -930,13 +930,19 @@ function getGymInfo(recipientId){
 				},
 				message: {
 					text: res.body,
-					quick_replies: {
-						text: "Want to check another bus?",
-						replies : [
-							"More Dublin bus times",
-							"No thanks"
-						]
-					}
+					text: "Pick a color:",
+					quick_replies:[
+						{
+							"content_type":"text",
+							"title":"More Dublin bus times",
+							"payload":"Dublin bus"
+						},
+						{
+							"content_type":"text",
+							"title":"No thanks",
+							"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+						}
+					]
 				}
 			}
 			callSendAPI(messageData);
