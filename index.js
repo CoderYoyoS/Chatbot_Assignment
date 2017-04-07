@@ -928,23 +928,20 @@ function getGymInfo(recipientId){
 				recipient: {
 					id: recipientId
 				},
-				message: {
-					"text": res.body,
-					"quick_replies":[
-						{
-							"content_type":"text",
-							"title":"Corduff",
-							"payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-						},
-						{
-							"content_type":"text",
-							"title":"Blanch Centre",
-							"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-						}
-					]
-				}
-			}
-			callSendAPI(messageData);
+				messages: [
+					{
+						text : res.body
+					},
+					{
+						title : "Want more bus times?",
+						replies : [
+							"Dublin Bus times",
+							"No thanks",
+						]
+					}
+				]
+		}
+		callSendAPI(messageData);
 	});
 }
 
