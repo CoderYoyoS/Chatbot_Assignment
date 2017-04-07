@@ -222,15 +222,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
-					var stopId = "";
+
+					console.log('\x1b[36m', "busNum" + busNum, '\x1b[0m');
 
 					//39 and 39a are at a different bus stop number
 					if(busNum == "39" || busNum == "39A"){
-						stopId = "7025";
-						getDublinBusTimes(sender, stopId, busNum);
+						getDublinBusTimes(sender, "7025", busNum);
 					}else{
-						stopId = "7026";
-						getDublinBusTimes(sender, stopId, busNum);
+						getDublinBusTimes(sender, "7026", busNum);
 					}
 			break;	
 
