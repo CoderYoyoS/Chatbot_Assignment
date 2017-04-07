@@ -932,14 +932,14 @@ function getGymInfo(recipientId){
 					text: res.body,
 					quick_replies:[
 						{
-							"content_type":"text",
-							"title":"More Dublin bus times",
-							"payload":"Dublin bus"
+							content_type :"text",
+							title : "More Dublin bus times",
+							payload : "Dublin bus"
 						},
 						{
-							"content_type":"text",
-							"title":"No thanks",
-							"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+							content_type :"text",
+							title : "No thanks",
+							payload : "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
 						}
 					]
 				}
