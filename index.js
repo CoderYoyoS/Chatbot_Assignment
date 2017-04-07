@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		case "" :
 
 			break;
-
+			
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -901,7 +901,19 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 					id: recipientId
 				},
 				message: {
-					text: res.body
+					text: res.body,
+					quick_replies:[
+						{
+							content_type :"text",
+							title : "More Dublin bus times",
+							payload : "Dublin bus"
+						},
+						{
+							content_type :"text",
+							title : "No thanks",
+							payload : "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+						}
+					]
 				}
 			}
 			callSendAPI(messageData);
@@ -928,16 +940,11 @@ function getGymInfo(recipientId){
 				recipient: {
 					id: recipientId
 				},
-				messages: [
-					{
-						text : res.body
-					},
-					{
-						text : "Want more bus times?"
-					}
-				]
-		}
-		callSendAPI(messageData);
+				message: {
+					text: res.body
+				}
+			}
+			callSendAPI(messageData);
 	});
 }
 
