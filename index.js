@@ -220,7 +220,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				
 				console.log('\x1b[36m', contexts[2].parameters.bus_areas, '\x1b[0m')
 
-				if(parameters.bus_areas == "Corduff"){
+				if(contexts[2].parameters.bus_areas == "Corduff"){
 
 					console.log("Corduff was in the parameters");
 					console.log(contexts[0].parameters.bus_id.original);
