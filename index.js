@@ -224,7 +224,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					var busNum = contexts[0].parameters.bus_id;
 					
 					//39 and 39a are at a different bus stop number
-					if(busNum === '39' || busNum=== '39A'){
+					if(busNum == JSON.parse('39') || busNum == JSON.parse('39A')){
 						  console.log('\x1b[36m', "I GOT INTO THE 39 PART", '\x1b[0m');
 						getDublinBusTimes(sender, "7025", busNum);
 
