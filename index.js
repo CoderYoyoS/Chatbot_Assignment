@@ -902,16 +902,15 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 				},
 				message: {
 					text: res.body,
-					text: "Wanna pick another bus? ☺️",			
 					quick_replies:[
 						{
 							content_type :"text",
-							title : "Different Bus",
+							title : "Pick snother Bus?🚏",
 							payload : "Dublin Bus"
 						},
 						{
 							content_type :"text",
-							title : "No thanks",
+							title : "No thanks❌",
 							payload : "No thanks"
 						}
 					]
