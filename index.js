@@ -900,7 +900,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 				recipient: { 
 					id: recipientId
 				},
-				message: [
+				messages: [
 					{
 						text: res.body
 					},
