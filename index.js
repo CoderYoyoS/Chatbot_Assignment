@@ -209,16 +209,18 @@ function handleEcho(messageId, appId, metadata) {
  * @param {*} parameters 
  */
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
-	
-	var busNum = "";
-	var stopId = "";
+
 	switch (action) {
 
 		case "corduff-route-picked" :
 				if(contexts[2].parameters.bus_areas == "Corduff"){
-					busNum = contexts[2].parameters.bus_id.original
-					stopId = "1835";
+					var busNum = contexts[2].parameters.bus_id;
+					var stopId = "1835";
 
+
+					console.log('\x1b[36m', "BUS NUM --- " + busNum, '\x1b[0m');
+					console.log('\x1b[36m', "STOP ID --- " + stopId, '\x1b[0m');
+					
 					getDublinBusTimes(sender, stopId, busNum);
 				}
 			break;
@@ -885,7 +887,7 @@ function isDefined(obj) {
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
 	var options = {
-		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum, 
+		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum + "/", 
 		method : "GET"
 	}
 	
