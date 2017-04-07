@@ -227,12 +227,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					//39 and 39a are at a different bus stop number
 					if(busNum == "39" || busNum == "39A"){
 						stopId = "7025";
+						getDublinBusTimes(sender, stopId, busNum);
 					}else{
 						stopId = "7026";
+						getDublinBusTimes(sender, stopId, busNum);
 					}
-					getDublinBusTimes(sender, stopId, busNum);
 			break;	
-			
+
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
