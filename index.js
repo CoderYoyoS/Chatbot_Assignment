@@ -213,33 +213,26 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 		//Corduff bus stop
 		case "corduff-route-picked" :
-				if(contexts[2].parameters.bus_areas == "Corduff"){
 					var busNum = contexts[2].parameters.bus_id;
 					var stopId = "1835";
 
 					getDublinBusTimes(sender, stopId, busNum);
-				}
 			break;
 
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
-				// if(contexts[2].parameters.bus_areas == ""){
-
 					var busNum = contexts[0].parameters.bus_id;
 					var stopId = "";
 
-					console.log('\x1b[36m', "BUS ID ------" + busNum, '\x1b[0m')
-					
 					//39 and 39a are at a different bus stop number
 					if(busNum == "39" || busNum == "39A"){
 						stopId = "7025";
+					}else{
+						stopId = "7026";
 					}
-
-					stopId = "7026";
 					getDublinBusTimes(sender, stopId, busNum);
-				// }
-
 			break;	
+			
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
