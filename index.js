@@ -217,13 +217,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					var busNum = contexts[2].parameters.bus_id;
 					var stopId = "1835";
 
-
-					console.log('\x1b[36m', "BUS NUM --- " + busNum, '\x1b[0m');
-					console.log('\x1b[36m', "STOP ID --- " + stopId, '\x1b[0m');
-					
 					getDublinBusTimes(sender, stopId, busNum);
 				}
 			break;
+
+		case "" :
+
+			break;
+
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -928,7 +929,14 @@ function getGymInfo(recipientId){
 					id: recipientId
 				},
 				message: {
-					text: res.body
+					text: res.body,
+					quick_replies: {
+						text: "Want to check another bus?",
+						replies : [
+							"More Dublin bus times",
+							"No thanks"
+						]
+					}
 				}
 			}
 			callSendAPI(messageData);
