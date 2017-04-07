@@ -222,13 +222,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
-
-					console.log('\x1b[36m', "busNum ----" + busNum, '\x1b[0m');
-
+					
 					//39 and 39a are at a different bus stop number
-					if(contexts[0].parameters.bus_id === '39' || contexts[0].parameters.bus_id === '39A'){
+					if(busNum === '39' || busNum=== '39A'){
+						  console.log('\x1b[36m', "I GOT INTO THE 39 PART", '\x1b[0m');
 						getDublinBusTimes(sender, "7025", busNum);
+
 					}else{
+						console.log('\x1b[36m', "I GOT INTO THE OTHER PART", '\x1b[0m');
 						getDublinBusTimes(sender, "7026", busNum);
 					}
 			break;	
