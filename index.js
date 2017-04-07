@@ -900,29 +900,22 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 				recipient: { 
 					id: recipientId
 				},
-				messages: [
-					{
-						text: res.body
-					},
-					{
-						text: "Wanna check a different bus? ☺️",
-						quick_replies:[
-							{
-								content_type :"text",
-								title : "Different Bus",
-								payload : "Dublin Bus"
-							},
-							{
-								content_type :"text",
-								title : "No thanks",
-								payload : "No thanks"
-							}
-						]
-					}
-
-
-				]
-					
+				message: {
+					text: res.body,
+					text: "Wanna pick another bus? ☺️",			
+					quick_replies:[
+						{
+							content_type :"text",
+							title : "Different Bus",
+							payload : "Dublin Bus"
+						},
+						{
+							content_type :"text",
+							title : "No thanks",
+							payload : "No thanks"
+						}
+					]
+				}
 			}
 			callSendAPI(messageData);
 	});
