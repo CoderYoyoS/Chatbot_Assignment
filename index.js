@@ -929,17 +929,17 @@ function getGymInfo(recipientId){
 					id: recipientId
 				},
 				message: {
-					text: res.body,
-					quick_replies:[
+					"text": res.body,
+					"quick_replies":[
 						{
-							content_type :"text",
-							title : "More Dublin bus times",
-							payload : "Dublin bus"
+							"content_type":"text",
+							"title":"Corduff",
+							"payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
 						},
 						{
-							content_type :"text",
-							title : "No thanks",
-							payload : "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+							"content_type":"text",
+							"title":"Blanch Centre",
+							"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
 						}
 					]
 				}
