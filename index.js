@@ -218,7 +218,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		case "corduff-route-picked" :
 				
-				console.log('\x1b[36m', "TEST", '\x1b[0m')
+				console.log('\x1b[36m', parameters.bus_areas, '\x1b[0m')
 
 				if(parameters.bus_areas == "Corduff"){
 
