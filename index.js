@@ -900,21 +900,29 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 				recipient: { 
 					id: recipientId
 				},
-				message: {
-					text: res.body,
-					quick_replies:[
-						{
-							content_type :"text",
-							title : "More Dublin bus times",
-							payload : "Dublin bus"
-						},
-						{
-							content_type :"text",
-							title : "No thanks",
-							payload : "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-						}
-					]
-				}
+				message: [
+					{
+						text: res.body
+					},
+					{
+						text: "Wanna check a different bus? ☺️",
+						quick_replies:[
+							{
+								content_type :"text",
+								title : "Different Bus",
+								payload : "Dublin Bus"
+							},
+							{
+								content_type :"text",
+								title : "No thanks",
+								payload : "No thanks"
+							}
+						]
+					}
+
+
+				]
+					
 			}
 			callSendAPI(messageData);
 	});
