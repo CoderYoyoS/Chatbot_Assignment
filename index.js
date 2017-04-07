@@ -210,22 +210,16 @@ function handleEcho(messageId, appId, metadata) {
  */
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	
-	console.log("ACTION WAS ------ " + action);
-
-
-	var busId = "";
+	var busNum = "";
+	var stopId = "";
 	switch (action) {
 
 		case "corduff-route-picked" :
-				
-				console.log('\x1b[36m', contexts[2].parameters.bus_areas, '\x1b[0m')
-
 				if(contexts[2].parameters.bus_areas == "Corduff"){
+					busNum = contexts[2].parameters.bus_id.original
+					stopId = "1835";
 
-					console.log("Corduff was in the parameters");
-					console.log(contexts[0].parameters.bus_id.original);
-
-
+					getDublinBusTimes(sender, stopId, busNum);
 				}
 			break;
 		default:
