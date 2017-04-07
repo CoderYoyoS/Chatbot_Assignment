@@ -214,16 +214,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//Corduff bus stop
 		case "corduff-route-picked" :
 					var busNum = contexts[2].parameters.bus_id;
-					var stopId = "1835";
-
-					getDublinBusTimes(sender, stopId, busNum);
+					getDublinBusTimes(sender,"1835", busNum);
 			break;
 
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
-					
-						getDublinBusTimes(sender, "7026", busNum);
+					getDublinBusTimes(sender, "7026", decodeURIComponent(busNum));
 					
 			break;	
 
