@@ -930,7 +930,6 @@ function getGymInfo(recipientId){
 				},
 				message: {
 					text: res.body,
-					text: "Pick a color:",
 					quick_replies:[
 						{
 							"content_type":"text",
