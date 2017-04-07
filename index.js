@@ -933,7 +933,7 @@ function getGymInfo(recipientId){
 						text : res.body
 					},
 					{
-						title : "Want more bus times?",
+						text : "Want more bus times?",
 						replies : [
 							"Dublin Bus times",
 							"No thanks",
