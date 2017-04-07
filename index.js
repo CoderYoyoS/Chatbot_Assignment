@@ -220,10 +220,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
-					getDublinBusTimes(sender, "7026", decodeURIComponent(busNum));
-					
+					getDublinBusTimes(sender, "7026", busNum);
 			break;	
 
+		case "blanch-retail-side-route-picked" :
+
+			break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -906,6 +908,11 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 							content_type :"text",
 							title : "Pick another Bus?🚏",
 							payload : "Dublin Bus"
+						},
+						{
+							content_type :"text",
+							title : "Main Menu 💬",
+							payload : "No thanks"
 						},
 						{
 							content_type :"text",
