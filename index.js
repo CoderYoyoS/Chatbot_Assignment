@@ -888,13 +888,13 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum, 
 		method : "GET"
 	}
-
+	
 	request(options, function(error, res, body){
             console.log('\x1b[36m', res.body, '\x1b[0m');
 
 			var text = res.body;
 			var messageData = {
-				recipient: {
+				recipient: { 
 					id: recipientId
 				},
 				message: {
