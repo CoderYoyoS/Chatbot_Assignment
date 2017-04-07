@@ -905,7 +905,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 					quick_replies:[
 						{
 							content_type :"text",
-							title : "Pick snother Bus?🚏",
+							title : "Pick another Bus?🚏",
 							payload : "Dublin Bus"
 						},
 						{
