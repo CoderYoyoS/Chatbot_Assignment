@@ -912,7 +912,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 						{
 							content_type :"text",
 							title : "Main Menu 💬",
-							payload : "No thanks"
+							payload : "Main menu"
 						},
 						{
 							content_type :"text",
