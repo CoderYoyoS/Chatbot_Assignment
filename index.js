@@ -232,6 +232,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			break;
 		case "aquatic-centre-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
+
+					console.log("------" + busNum);
+
 					getDublinBusTimes(sender, "6274", busNum);
 			break;
 		default:
