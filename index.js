@@ -390,9 +390,6 @@ function handleApiAiResponse(sender, response) {
 		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
 	}
 	else if (isDefined(action)) {
-
-
-
 		handleApiAiAction(sender, action, responseText, contexts, parameters);
 	} 
 	else if (isDefined(responseData) && isDefined(responseData.facebook)) {
@@ -893,7 +890,7 @@ function isDefined(obj) {
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
 	var options = {
-		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum + "/", 
+		url: BUS_SERVER_URL + stopId + "/" + busNum + "/", 
 		method : "GET"
 	}
 	
