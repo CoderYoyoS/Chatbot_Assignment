@@ -214,30 +214,49 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 	switch (action) {
+
+		/*************** Dublin Bus Actions ******************/
+
 		//Corduff bus stop
 		case "corduff-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender,"1835", busNum);
 			break;
-
 		//Blanch centre side
 		case "blanch-centre-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender, "7026", busNum);
 			break;	
-
+		//Blanch retail park
 		case "blanch-retail-side-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender, "4747", busNum);
 			break;
+		//Aquatic centre bus stop
 		case "aquatic-centre-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender, "6274", busNum);
 			break;
+		//Stop across from Ebay
 		case "ebay-route-picked" : 
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender, "1545", busNum);
 			break;
+
+		/*************** Library Actions ********************/
+
+
+				// cases go here
+
+
+
+		/***************** Gym Actions **********************/
+
+
+				// cases go here
+
+
+		/****************************************************/
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
@@ -251,9 +270,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
  * @param {*} sender 
  */
 function handleMessage(message, sender) {
-
-
-	
 	switch (message.type) {
 
 		//If it is text
