@@ -892,7 +892,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 
 	//+ stopId + "/" + busNum 
 	var options = {
-		url: config.BUS_SERVER_URL + '/webhook', 
+		url: config.BUS_SERVER_URL + 'webhook', 
 		method : "GET"
 	}
 	
