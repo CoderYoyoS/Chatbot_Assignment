@@ -201,6 +201,9 @@ function handleEcho(messageId, appId, metadata) {
 
 
 /**
+ * ************** THIS IS WHERE MOST OF OUR CODING WILL BE DONE *************************
+ * 
+ * 
  * Used to handle API.ai responses
  * @param {*} sender 
  * @param {*} action 
@@ -935,7 +938,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 function getGymInfo(recipientId){
 
 	var options = {
-		url: "https://brianapi.herokuapp.com/bus", 
+		url: "https://brianapi.herokuapp.com/", 
 		method : "GET"
 	}
 
