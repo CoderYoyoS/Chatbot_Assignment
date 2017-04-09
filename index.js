@@ -216,7 +216,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
 		//Corduff bus stop
 		case "corduff-route-picked" :
-					var busNum = contexts[2].parameters.bus_id;
+					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender,"1835", busNum);
 			break;
 
@@ -232,10 +232,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			break;
 		case "aquatic-centre-route-picked" :
 					var busNum = contexts[0].parameters.bus_id;
-
-					console.log("------" + busNum);
-
 					getDublinBusTimes(sender, "6274", busNum);
+			break;
+		case "ebay-route-picked" : 
+					var busNum = contexts[0].parameters.bus_id;
+					getDublinBusTimes(sender, "1545", busNum);
 			break;
 		default:
 			//unhandled action, just send back the text
