@@ -890,7 +890,7 @@ function isDefined(obj) {
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
 	var options = {
-		url: config.BUS_SERVER_URL + stopId + "/" + busNum + "/", 
+		url: config.BUS_SERVER_URL + "/"+ stopId + "/" + busNum + "/", 
 		method : "GET"
 	}
 	
