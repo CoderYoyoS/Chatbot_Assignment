@@ -947,15 +947,26 @@ function getGymInfo(recipientId){
 	}
 
 	request(options, function(error, res, body){
-            console.log('\x1b[36m', body, '\x1b[0m');
 
 			var text = res.body;
 			var messageData = {
-				recipient: {
+				recipient: { 
 					id: recipientId
 				},
 				message: {
-					text: res.body
+					text: res.body,
+					quick_replies:[
+						{
+							content_type :"text",
+							title : "Main Menu 💬",
+							payload : "Main menu"
+						},
+						{
+							content_type :"text",
+							title : "No thanks❌",
+							payload : "No thanks"
+						}
+					]
 				}
 			}
 			callSendAPI(messageData);
@@ -974,15 +985,26 @@ function getLibraryInfo(recipientId){
 	}
 
 	request(options, function(error, res, body){
-            console.log('\x1b[36m', res.body, '\x1b[0m');
 
 			var text = res.body;
 			var messageData = {
-				recipient: {
+				recipient: { 
 					id: recipientId
 				},
 				message: {
-					text: res.body
+					text: res.body,
+					quick_replies:[
+						{
+							content_type :"text",
+							title : "Main Menu 💬",
+							payload : "Main menu"
+						},
+						{
+							content_type :"text",
+							title : "No thanks❌",
+							payload : "No thanks"
+						}
+					]
 				}
 			}
 			callSendAPI(messageData);
