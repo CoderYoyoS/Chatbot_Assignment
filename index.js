@@ -230,6 +230,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					var busNum = contexts[0].parameters.bus_id;
 					getDublinBusTimes(sender, "4747", busNum);
 			break;
+		case "aquatic-centre-route-picked" :
+					var busNum = contexts[0].parameters.bus_id;
+					getDublinBusTimes(sender, "6274", busNum);
+			break;
 		default:
 			//unhandled action, just send back the text
 			sendTextMessage(sender, responseText);
