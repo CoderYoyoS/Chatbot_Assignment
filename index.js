@@ -889,8 +889,10 @@ function isDefined(obj) {
  * @param {*} recipientId 
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
+
+	//+ stopId + "/" + busNum 
 	var options = {
-		url: config.BUS_SERVER_URL + stopId + "/" + busNum , 
+		url: config.BUS_SERVER_URL + '/webhook', 
 		method : "GET"
 	}
 	
