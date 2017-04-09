@@ -889,10 +889,8 @@ function isDefined(obj) {
  * @param {*} recipientId 
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
-
-	//+ stopId + "/" + busNum 
 	var options = {
-		url: config.BUS_SERVER_URL + 'webhook', 
+		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum + "/", 
 		method : "GET"
 	}
 	
@@ -937,7 +935,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 function getGymInfo(recipientId){
 
 	var options = {
-		url: config.GYM_SERVER_URL, 
+		url: "https://brianapi.herokuapp.com/", 
 		method : "GET"
 	}
 
@@ -964,8 +962,7 @@ function getGymInfo(recipientId){
 function getLibraryInfo(recipientId){
 
 	var options = {
-		//Enter parameters after url
-		url: config.LIBRARY_SERVER_URL, 
+		url: "https://daireapi.herokuapp.com/bus", 
 		method : "GET"
 	}
 
