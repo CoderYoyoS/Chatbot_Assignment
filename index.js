@@ -257,22 +257,25 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					console.log('\x1b[36m', "---- I GOT TO THE CLASS ACTION ------", '\x1b[0m');					
 
 				//If monday, wednesday or thursday has a value
-				if(contexts[0].parameters.class_days_mwf != null){
+				if(contexts[0].parameters.class_days_mwf == 'Monday' ||
+				   contexts[0].parameters.class_days_mwf == 'Wednesday' ||
+				   contexts[0].parameters.class_days_mwf == 'Friday' ){
+
 					var pickedDay = contexts[0].parameters.class_days_mwf;
 
 					console.log('\x1b[36m', "MONDAY WEDNESDAY AND THUSDAY WAS PICKED", '\x1b[0m');
-
-
 					// getLibraryInfo(sender, action, pickedDay);
 				}
 				//If tuesday or thurday has a value
-				else if(contexts[0].parameters.class_days_tt != null){
+				else if(contexts[0].parameters.class_days_tt == 'Tuesday' ||
+				  		contexts[0].parameters.class_days_tt == 'Thursday'){
 					var pickedDay = contexts[0].parameters.class_days_tt;
 
 					getLibraryInfo(sender, action, pickedDay);
 				}
 				//If Saturday or sunday has a value
-				else if(contexts[0].parameters.class_days_ss != null){
+				else if(contexts[0].parameters.class_days_ss == 'Saturday' ||
+				  		contexts[0].parameters.class_days_ss == 'Sunday'){
 					var pickedDay = contexts[0].parameters.class_days_ss;
 
 					console.log('\x1b[36m', "SATURDAY AND SUNDAY WAS PICKED", '\x1b[0m');
