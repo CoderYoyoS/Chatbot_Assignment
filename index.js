@@ -252,10 +252,36 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		/***************** Gym Actions **********************/
 
+		case "gym-class-times-days-picked" :
+				//If monday, wednesday or thursday has a value
+				if(isDefined(contexts[0].parameters.class_days_mwf)){
+					var pickedDay = contexts[0].parameters.class_days_mwf;
 
-				// cases go here
+					console.log('\x1b[36m', "MONDAY WEDNESDAY AND THUSDAY WAS PICKED", '\x1b[0m');
 
 
+					// getLibraryInfo(sender, action, pickedDay);
+				}
+				//If tuesday or thurday has a value
+				else if(isDefined(contexts[0].parameters.class_days_tt)){
+					var pickedDay = contexts[0].parameters.class_days_mwf;
+
+					console.log('\x1b[36m', "TUESDAY AND THURSDAY WAS PICKED", '\x1b[0m');
+
+
+					// getLibraryInfo(sender, action, pickedDay);
+				}
+				//If Saturday or sunday has a value
+				else if(isDefined(contexts[0].parameters.class_days_ss)){
+					var pickedDay = contexts[0].parameters.class_days_mwf;
+
+					console.log('\x1b[36m', "SATURDAY AND SUNDAY WAS PICKED", '\x1b[0m');
+
+
+					// getLibraryInfo(sender, action, pickedDay);
+				}
+				var classDay = contexts[0]
+			break;
 		/****************************************************/
 		default:
 			//unhandled action, just send back the text
@@ -956,12 +982,17 @@ function getDublinBusTimes(recipientId, stopId, busNum){
  * Function to make HTTP request to Brian's Gym API
  * @param {*} recipientId 
  */
-function getGymInfo(recipientId){
-
-	var options = {
-		url: "https://brianapi.herokuapp.com/", 
-		method : "GET"
+function getGymInfo(recipientId, action, day){
+	
+	var options;
+	
+	if(action == "gym-class-times-days-picked"){
+		options = {
+			url: "https://brianapi.herokuapp.com/api/" + day, 
+			method : "GET"
+		}
 	}
+
 
 	request(options, function(error, res, body){
 
