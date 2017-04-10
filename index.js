@@ -253,6 +253,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
+
+					console.log('\x1b[36m', "---- I GOT TO THE CLASS ACTION ------", '\x1b[0m');
+
 				//If monday, wednesday or thursday has a value
 				if(isDefined(contexts[0].parameters.class_days_mwf)){
 					var pickedDay = contexts[0].parameters.class_days_mwf;
