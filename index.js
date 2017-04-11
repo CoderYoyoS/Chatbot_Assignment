@@ -998,7 +998,7 @@ function getGymInfo(recipientId, action, day){
 		console.log('\x1b[36m', "----- "+ day + " --------", '\x1b[0m');
 
 		options = {
-			url: "10.9.33.132:5000/gym/gym/classes" + day, 
+			url: "10.9.33.132:5000/gym/gym/classes/" + day, 
 			method : "GET"
 		}
 	}
