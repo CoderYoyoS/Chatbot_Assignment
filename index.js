@@ -808,7 +808,7 @@ function receivedPostback(event) {
 					}
 				]
 			}
-			sendTextMessage(senderID, messageData);
+			sendTextMessage(senderID, "Hello test");
 			// callSendAPI(messageData);
 				break;
 		default:
