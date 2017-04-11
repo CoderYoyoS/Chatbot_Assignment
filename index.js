@@ -792,7 +792,7 @@ function receivedPostback(event) {
 				recipient: { 
 					id: senderID
 				},
-				messages: [
+				message: [
 					{
 						message :{
 							text: "Hi, I am the ITB Chatbot. 🤖 Im here to help you through college and make your college life easier😃"
