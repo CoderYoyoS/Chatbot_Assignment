@@ -789,33 +789,27 @@ function receivedPostback(event) {
 			console.log('\x1b[36m', "----- I GOT TO THE GET STARTED PAYLOAD --------", '\x1b[0m');
 
 			var messageData = {
-				recipient: { 
-					id: senderID
-				},
-				messages : [
+			text: "Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃So lets get started 😏",
+			quick_replies :[
 					{
-					text: "Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃So lets get started 😏",
-					quick_replies :[
-							{
-								content_type :"text",
-								title : "What can you do?",
-								payload : "What can you do?"
-							},
-							{
-								content_type :"text",
-								title : "Who made you?",
-								payload : "Who made you?"
-							},
-							{
-								content_type :"text",
-								title : "Privacy policy",
-								payload : "Privacy policy"
-							}
-						]
+						content_type :"text",
+						title : "What can you do?",
+						payload : "What can you do?"
+					},
+					{
+						content_type :"text",
+						title : "Who made you?",
+						payload : "Who made you?"
+					},
+					{
+						content_type :"text",
+						title : "Privacy policy",
+						payload : "Privacy policy"
 					}
 				]
 			}
-			callSendAPI(messageData);
+			sendTextMessage(senderID, messageData);
+			// callSendAPI(messageData);
 				break;
 		default:
 			//unindentified payload
