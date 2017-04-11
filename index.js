@@ -253,15 +253,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
-
-			console.log('\x1b[36m', "---- I GOT TO THE CLASS ACTION ------", '\x1b[0m');					
-
 			var dayPicked = contexts[0].parameters.gym_days;
-
-			console.log('\x1b[36m', "----" + dayPicked +" ----", '\x1b[0m');					
-
-				
+			getGymInfo(sender, action, dayPicked);
 			break;
+
+		
 		/****************************************************/
 		default:
 			//unhandled action, just send back the text
@@ -788,6 +784,35 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case 'GET_STARTED' :
+
+			var messageData = {
+				recipient: { 
+					id: recipientId
+				},
+				message : {
+				text: "Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃So lets get started 😏",
+				quick_replies :[
+						{
+							content_type :"text",
+							title : "What can you do?",
+							payload : "What can you do?"
+						},
+						{
+							content_type :"text",
+							title : "Who made you?",
+							payload : "Who made you?"
+						},
+						{
+							content_type :"text",
+							title : "Privacy policy",
+							payload : "Privacy policy"
+						}
+					]
+				}
+			}
+			callSendAPI(messageData);
+				break;
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
@@ -965,7 +990,7 @@ function getDublinBusTimes(recipientId, stopId, busNum){
 function getGymInfo(recipientId, action, day){
 	
 	var options;
-	
+
 	if(action == "gym-class-times-days-picked"){
 		options = {
 			url: "https://brianapi.herokuapp.com/api/" + day, 
