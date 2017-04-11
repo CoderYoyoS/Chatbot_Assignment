@@ -787,13 +787,10 @@ function receivedPostback(event) {
 		case 'GET_STARTED' :
 
 			console.log('\x1b[36m', "----- I GOT TO THE GET STARTED PAYLOAD --------", '\x1b[0m');
-				console.log('\x1b[36m', "----- " +recipientID +" --------", '\x1b[0m');
-
-
 
 			var messageData = {
 				recipient: { 
-					id: recipientID
+					id: senderID
 				},
 				messages : [
 					{
