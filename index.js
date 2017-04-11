@@ -817,7 +817,6 @@ function receivedPostback(event) {
 						]
 					}
 				]
-				}
 			};
 
 			callSendAPI(messageData);
