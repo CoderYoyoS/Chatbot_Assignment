@@ -810,6 +810,9 @@ function receivedPostback(event) {
 			// }
 
 			var messageData = {
+				recipient: { 
+					id: event.recipient.id
+				},
 				message: {
 					text:"Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃So lets get started 😏",
 					quick_replies:[
@@ -832,9 +835,8 @@ function receivedPostback(event) {
 				}
 			};
 
-			sendTextMessage(senderID,messageData );
-			// callSendAPI(messageData);
-				break;
+			callSendAPI(messageData);
+			break;
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
@@ -1063,9 +1065,7 @@ function getLibraryInfo(recipientId){
 
 			var text = res.body;
 			var messageData = {
-				recipient: { 
-					id: recipientId
-				},
+
 				message: {
 					text: res.body,
 					quick_replies:[
