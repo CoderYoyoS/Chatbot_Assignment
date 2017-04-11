@@ -792,27 +792,57 @@ function receivedPostback(event) {
 				recipient: { 
 					id: senderID
 				},
-				message: {
-					text:"Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃",
-					text:"So lets get started 😏",
-					quick_replies:[
-						{
-						content_type :"text",
-						title : "What can you do?",
-							payload : "What can you do?"
-						},
-						{
-							content_type :"text",
-							title : "Who made you?",
-							payload : "Who made you?"
-						},
-						{
-							content_type :"text",
-							title : "Privacy policy",
-							payload : "Privacy policy"
+				messages: [
+					{
+						message :{
+							text: "Hi, I am the ITB Chatbot. 🤖 Im here to help you through college and make your college life easier😃"
 						}
-					]
-				}
+					},
+					{
+					text : "So lets get started 😏",
+					quick_replies:[
+							{
+								content_type :"text",
+								title : "What can you do?",
+								payload : "What can you do?"
+							},
+							{
+								content_type :"text",
+								title : "Who made you?",
+								payload : "Who made you?"
+							},
+							{
+								content_type :"text",
+								title : "Privacy policy",
+								payload : "Privacy policy"
+							}
+						]
+					}
+				]
+
+
+
+				// message: {
+				// 	text:"Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃",
+				// 	text:"So lets get started 😏",
+				// 	quick_replies:[
+				// 		{
+				// 		content_type :"text",
+				// 		title : "What can you do?",
+				// 			payload : "What can you do?"
+				// 		},
+				// 		{
+				// 			content_type :"text",
+				// 			title : "Who made you?",
+				// 			payload : "Who made you?"
+				// 		},
+				// 		{
+				// 			content_type :"text",
+				// 			title : "Privacy policy",
+				// 			payload : "Privacy policy"
+				// 		}
+				// 	]
+				// }
 			};
 
 			callSendAPI(messageData);
