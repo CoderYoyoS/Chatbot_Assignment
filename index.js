@@ -786,6 +786,8 @@ function receivedPostback(event) {
 	switch (payload) {
 		case 'GET_STARTED' :
 
+			console.log('\x1b[36m', "----- I GOT TO THE GET STARTED PAYLOAD --------", '\x1b[0m');
+
 			var messageData = {
 				recipient: { 
 					id: recipientID
