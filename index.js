@@ -788,7 +788,7 @@ function receivedPostback(event) {
 
 			var messageData = {
 				recipient: { 
-					id: recipientId
+					id: recipientID
 				},
 				message : {
 				text: "Hi, I am the ITB Chatbot🤖 Im here to help you through college and make your college life easier😃So lets get started 😏",
