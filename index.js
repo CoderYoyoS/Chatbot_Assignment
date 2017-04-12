@@ -809,6 +809,7 @@ function receivedPostback(event) {
 			callSendAPI(messageData);
 			break;
 		case "Library_opening_times" :
+				console.log("------ GOT TO LIBRARY POSTBACK ----------");
 				sendToApiAi(senderID, "Library Opening Times");
 			break;
 		default:
