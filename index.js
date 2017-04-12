@@ -285,10 +285,6 @@ function handleMessage(message, sender) {
 		case 0: 
 			sendTextMessage(sender, message.speech);
 			break;
-
-		case 1:
-			handleCardMessages(message, sender)
-		break;
 		
 		//if it a quick reply
 		case 2: 
