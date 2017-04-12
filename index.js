@@ -380,6 +380,7 @@ let responseText = response.result.fulfillment.speech;
 	sendTypingOff(sender);
 
 	if (isDefined(messages) && (messages.length == 1 && messages[0].type != 0 || messages.length > 1)) {
+
 		let timeoutInterval = 1100;
 		let previousType ;
 		let cardTypes = [];
@@ -417,25 +418,7 @@ let responseText = response.result.fulfillment.speech;
 			sendTextMessage(sender, err.message);
 		}
 	} else if (isDefined(responseText)) {
-		sendTextMessage(sender, responseText);
-	} 
-	//If the response does not have a value
-	else if (responseText == '' && !isDefined(action)) {
-		//api ai could not evaluate input.
-		// console.log('Unknown query' + response.result.resolvedQuery);
-		sendTextMessage(sender, "I'm not sure what you want. Can you be more specific?");
-	}
-	else if (isDefined(action)) {
-		handleApiAiAction(sender, action, responseText, contexts, parameters);
-	} 
-	else if (isDefined(responseData) && isDefined(responseData.facebook)) {
-		try {
-			// console.log('Response as formatted message' + responseData.facebook);
-			sendTextMessage(sender, responseData.facebook);
-		} catch (err) {
-			sendTextMessage(sender, err.message);
-		}
-	} else if (isDefined(responseText)) {
+		console.log('Respond as text message');
 		sendTextMessage(sender, responseText);
 	}
 }
