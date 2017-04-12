@@ -808,6 +808,9 @@ function receivedPostback(event) {
 			};
 			callSendAPI(messageData);
 			break;
+		case "Library_opening_times" :
+				sendToApiAi(senderID, "Library Opening Times");
+			break;
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
