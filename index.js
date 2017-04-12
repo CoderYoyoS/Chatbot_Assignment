@@ -256,8 +256,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			var dayPicked = contexts[0].parameters.gym_days;
 			getGymInfo(sender, action, dayPicked);
 			break;
-
-		
+		case "gym-opening-times-picked" :
+			
+			getGymInfo(sender, action, null);
+			break;
 		/****************************************************/
 		default:
 			//unhandled action, just send back the text
@@ -993,17 +995,25 @@ function getGymInfo(recipientId, action, day){
 	
 	var options;
 
+	//user picks class days
 	if(action == "gym-class-times-days-picked"){
-
-		console.log('\x1b[36m', "----- "+ day + " --------", '\x1b[0m');
-
 		options = {
 			url: "https://brianapi.herokuapp.com/gym/gym/classes/" + day, 
 			method : "GET"
 		}
 	}
+	//user picks opening times
+	else if (action == "gym-opening-times-picked"){
+		options = {
+			url: "https://brianapi.herokuapp.com/gym/gym/openingtimes/",
+			method : "GET"
+		}
+	}
 
 
+	/**
+	 * Deal with response from API
+	 */
 	request(options, function(error, res, body){
 
 			var text = res.body;
