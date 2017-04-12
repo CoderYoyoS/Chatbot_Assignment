@@ -1016,6 +1016,11 @@ function getGymInfo(recipientId, action, day){
 					quick_replies:[
 						{
 							content_type :"text",
+							title : "More gym info🏃🏻",
+							payload : "More gym info"
+						},
+						{
+							content_type :"text",
 							title : "Main Menu 💬",
 							payload : "Main menu"
 						},
