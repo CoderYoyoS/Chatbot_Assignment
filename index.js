@@ -813,7 +813,7 @@ function receivedPostback(event) {
 		case 'LIBRARY_OPENING' :
 				console.log("------ GOT TO LIBRARY POSTBACK ----------");
 					
-				sendToApiAi(senderID, event.message.postback);
+				sendToApiAi(senderID, 'library opening times');
 			break;
 		default:
 			//unindentified payload
