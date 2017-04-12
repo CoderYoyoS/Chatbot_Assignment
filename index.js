@@ -776,6 +776,8 @@ function receivedPostback(event) {
 	// button for Structured Messages. 
 	var payload = event.postback.payload;
 
+	console.log('\x1b[36m', "----- "+ payload +" --------", '\x1b[0m');
+
 	switch (payload) {
 		case 'GET_STARTED' :
 
@@ -808,7 +810,7 @@ function receivedPostback(event) {
 			};
 			callSendAPI(messageData);
 			break;
-		case "Library_opening_times" :
+		case "LIBRARY_OPENING" :
 				console.log("------ GOT TO LIBRARY POSTBACK ----------");
 				sendToApiAi(senderID, "Library Opening Times");
 			break;
