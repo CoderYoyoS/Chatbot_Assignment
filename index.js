@@ -253,12 +253,17 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
-			var dayPicked = contexts[0].parameters.gym_days;
-			getGymInfo(sender, action, dayPicked);
+				var dayPicked = contexts[0].parameters.gym_days;
+				getGymInfo(sender, action, dayPicked);
 			break;
 		case "gym-opening-times-picked" :
-			
-			getGymInfo(sender, action, null);
+				getGymInfo(sender, action, null);
+			break;
+		case "gym-equipment-picked":
+				getGymInfo(sender, action, null);
+			break;
+		case "gym-facilities-picked":
+				getGymInfo(sender, action, null);
 			break;
 		/****************************************************/
 		default:
@@ -1006,6 +1011,20 @@ function getGymInfo(recipientId, action, day){
 	else if (action == "gym-opening-times-picked"){
 		options = {
 			url: "https://brianapi.herokuapp.com/gym/gym/openingtimes/",
+			method : "GET"
+		}
+	}
+	//User wants to see gym equipment
+	else if(action == "gym-equipment-picked"){
+		options = {
+			url: "https://brianapi.herokuapp.com/gym/gym/equipment/",
+			method : "GET"
+		}
+	}
+	//user wants to see facilities
+	else{
+		options = {
+			url: "https://brianapi.herokuapp.com/gym/gym/facilities/",
 			method : "GET"
 		}
 	}
