@@ -998,7 +998,7 @@ function getGymInfo(recipientId, action, day){
 		console.log('\x1b[36m', "----- "+ day + " --------", '\x1b[0m');
 
 		options = {
-			url: "https://brianapi.herokuapp.com/gym/gym/classes" + day, 
+			url: "https://brianapi.herokuapp.com/gym/gym/classes/" + day, 
 			method : "GET"
 		}
 	}
