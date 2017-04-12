@@ -285,6 +285,10 @@ function handleMessage(message, sender) {
 		case 0: 
 			sendTextMessage(sender, message.speech);
 			break;
+
+		case 1:
+			handleCardMessages(message, sender)
+		break;
 		
 		//if it a quick reply
 		case 2: 
@@ -1072,7 +1076,7 @@ function getGymInfo(recipientId, action, day){
 function getLibraryInfo(recipientId){
 
 	var options = {
-		url: "https://daireapi.herokuapp.com/bus", 
+		url: "https://daireapi.herokuapp.com/", 
 		method : "GET"
 	}
 
