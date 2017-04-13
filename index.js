@@ -52,6 +52,7 @@ const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 	language: "en",
 	requestSource: "fb"
 });
+
 const sessionIds = new Map();
 
 // Index route
@@ -181,9 +182,7 @@ function handleMessageAttachments(messageAttachments, senderID){
  */
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
-
-	// console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
-	
+		
 	//send payload to api.ai
 	sendToApiAi(senderID, quickReplyPayload);
 }
@@ -260,6 +259,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		case 'library-print-check-balance-clicked' :
 				getLibraryInfo(sender, action);
 			break;
+		case 'library-print-top-up-clicked' :
+				getLibraryInfo(sender, action);
+			break;
+		case 'library-locate-book-clicked' :
+				getLibraryInfo(sender, action);
+			break;
+		case 'libary-laptop-loan-clicked':
+				getLibraryInfo(senderID, action);
+			break;
+		
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
@@ -501,94 +510,6 @@ function sendImageMessage(recipientId, imageUrl) {
 }
 
 /**
- * send a gif to the user
- * @param {*} recipientId 
- */
-function sendGifMessage(recipientId) {
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "image",
-				payload: {
-					url: config.SERVER_URL + "/assets/<filename>"
-				}
-			}
-		}
-	};
-	callSendAPI(messageData);
-}
-
-/*
- * Send audio using the Send API.
- *
- */
-function sendAudioMessage(recipientId) {
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "audio",
-				payload: {
-					url: config.SERVER_URL + "/assets/<filename>"
-				}
-			}
-		}
-	};
-
-	callSendAPI(messageData);
-}
-
-/**
- * Used to send files to the user
- * @param {*} recipientId 
- * @param {*} videoName 
- */
-function sendVideoMessage(recipientId, videoName) {
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "video",
-				payload: {
-					url: config.SERVER_URL + videoName
-				}
-			}
-		}
-	};
-	callSendAPI(messageData);
-}
-
-/**
- * Used to send files to user
- * @param {*} recipientId 
- * @param {*} fileName 
- */
-function sendFileMessage(recipientId, fileName) {
-	var messageData = {
-		recipient: {
-			id: recipientId
-		},
-		message: {
-			attachment: {
-				type: "file",
-				payload: {
-					url: config.SERVER_URL + fileName
-				}
-			}
-		}
-	};
-
-	callSendAPI(messageData);
-}
-
-/**
  * Send a button message to the user
  * @param {*} recipientId 
  * @param {*} text 
@@ -703,35 +624,6 @@ function sendTypingOff(recipientId) {
 		sender_action: "typing_off"
 	};
 	callSendAPI(messageData);
-}
-
-
-/**
- * Used to greet the user by their first name 
- * @param {*} userId 
- */
-function greetUserText(userId) {
-	//first read user firstname
-	request({
-		uri: 'https://graph.facebook.com/v2.7/' + userId,
-		qs: {
-			access_token: config.FB_PAGE_TOKEN
-		}
-
-	}, function (error, response, body) {
-		//iff theire is no error
-		if (!error && response.statusCode == 200) {
-			var user = JSON.parse(body);
-			//Log the users name and gender
-			if (user.first_name) {
-				console.log("FB user: %s %s, %s", user.first_name, user.last_name, user.gender);
-				sendTextMessage(userId, "Welcome " + user.first_name + '!');
-			}
-		} else {
-			console.error(response.error);
-		}
-
-	});
 }
 
 /**
@@ -882,32 +774,6 @@ function receivedDeliveryConfirmation(event) {
 		});
 	}
 	console.log("All message before %d were delivered.", watermark);
-}
-
-/*
- * Authorization Event
- *
- * The value for 'optin.ref' is defined in the entry point. For the "Send to 
- * Messenger" plugin, it is the 'data-ref' field. Read more at 
- * https://developers.facebook.com/docs/messenger-platform/webhook-reference/authentication
- *
- */
-function receivedAuthentication(event) {
-	var senderID = event.sender.id;
-	var recipientID = event.recipient.id;
-	var timeOfAuth = event.timestamp;
-
-	// The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
-	// The developer can set this to an arbitrary value to associate the 
-	// authentication callback with the 'Send to Messenger' click event. This is
-	// a way to do account linking when the user clicks the 'Send to Messenger' 
-	// plugin.
-	var passThroughParam = event.optin.ref;
-
-	// console.log("Received authentication for user %d and page %d with pass " +
-	// 	"through param '%s' at %d", senderID, recipientID, passThroughParam,
-	// 	timeOfAuth);
-	sendTextMessage(senderID, "Authentication successful");
 }
 
 /**
@@ -1129,7 +995,21 @@ function getLibraryInfo(recipientId, action){
 		}
 	}
 	//user wants link to check balance
-	else if(action == 'library-print-check-balance-clicked'){
+	else if(action == 'library-print-check-balance-clicked' || action == 'library-print-top-up-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+
+	else if (action == 'library-locate-book-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+
+	else if (action == 'libary-laptop-loan-clicked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
 			method : "GET"
