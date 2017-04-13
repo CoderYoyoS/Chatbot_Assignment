@@ -735,7 +735,7 @@ function receivedPostback(event) {
 			break;
 		case 'LAPTOP_LOAN' :
 				sendToApiAi(senderID, 'i want to borrow a laptop')
-			break;
+			break;   
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
