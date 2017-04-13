@@ -101,7 +101,7 @@ app.post('/webhook/', function (req, res) {
 					receivedPostback(messagingEvent);
 				} 
 				else {
-					Console.log("Unknown event type ..")
+					console.log("Unknown event type ..")
 				}
 			});
 		});
@@ -192,7 +192,7 @@ function handleEcho(messageId, appId, metadata) {
 
 
 /**
- * Used to handle API.ai responses
+ * Used to handle API.ai responses and calls API functions
  * @param {*} sender 
  * @param {*} action 
  * @param {*} responseText 
@@ -337,42 +337,42 @@ function handleMessage(message, sender) {
  * @param {*} messages 
  * @param {*} sender 
  */
-function handleCardMessages(messages, sender) {
+// function handleCardMessages(messages, sender) {
 
-	let elements = [];
-	for (var i = 0; i < messages.length; i++) {
-		let message = messages[i];
-		let buttons = [];
-		for (var b = 0; b < message.buttons.length; b++) {
-			let isLink = (message.buttons[b].postback.substring(0, 4) === 'http');
-			let button;
-			if (isLink) {
-				button = {
-					"type": "web_url",
-					"title": message.buttons[b].text,
-					"url": message.buttons[b].postback
-				}
-			} else {
-				button = {
-					"type": "postback",
-					"title": message.buttons[b].text,
-					"payload": message.buttons[b].postback
-				}
-			}
-			buttons.push(button);
-		}
+// 	let elements = [];
+// 	for (var i = 0; i < messages.length; i++) {
+// 		let message = messages[i];
+// 		let buttons = [];
+// 		for (var b = 0; b < message.buttons.length; b++) {
+// 			let isLink = (message.buttons[b].postback.substring(0, 4) === 'http');
+// 			let button;
+// 			if (isLink) {
+// 				button = {
+// 					"type": "web_url",
+// 					"title": message.buttons[b].text,
+// 					"url": message.buttons[b].postback
+// 				}
+// 			} else {
+// 				button = {
+// 					"type": "postback",
+// 					"title": message.buttons[b].text,
+// 					"payload": message.buttons[b].postback
+// 				}
+// 			}
+// 			buttons.push(button);
+// 		}
 
 
-		let element = {
-			"title": message.title,
-			"image_url":message.imageUrl,
-			"subtitle": message.subtitle,
-			"buttons": buttons
-		};
-		elements.push(element);
-	}
-	sendGenericMessage(sender, elements);
-}
+// 		let element = {
+// 			"title": message.title,
+// 			"image_url":message.imageUrl,
+// 			"subtitle": message.subtitle,
+// 			"buttons": buttons
+// 		};
+// 		elements.push(element);
+// 	}
+// 	sendGenericMessage(sender, elements);
+// }
 
 
 /**
