@@ -734,7 +734,9 @@ function receivedPostback(event) {
 				sendToApiAi(senderID, 'I want to locate a book');
 			break;
 		case 'LAPTOP_LOAN' :
-				sendToApiAi(senderID, 'i want to borrow a laptop')
+
+				console.log('\x1b[36m', "----- GOT TO LOAN PAYLOAD --------", '\x1b[0m');
+				sendToApiAi(senderID, 'i want to borrow a laptop');
 			break;   
 		default:
 			//unindentified payload
