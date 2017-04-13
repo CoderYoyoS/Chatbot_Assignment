@@ -245,10 +245,15 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		/*************** Library Actions ********************/
 
-		case 'library-pin-forgotten-picked' :
-				getLibraryInfo(sender, action)
-			break
-
+		case 'library-pin-not-enrolled' :
+				getLibraryInfo(sender, action);
+			break;
+		case 'library-pin-recovery-picked' :
+				getLibraryInfo(sender, action);
+			break;
+		case 'library-online-account-picked' :
+				getLibraryInfo(sender, action);
+			break;	
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
@@ -813,13 +818,13 @@ function receivedPostback(event) {
 				sendToApiAi(senderID, 'What time does the library open at?');
 			break;
 		case 'FORGOTTEN_PIN' :
-				sendToApiAi(senderID, 'I have forgotten my pin')
+				sendToApiAi(senderID, 'I have forgotten my pin');
 			break;
 		case 'ONLINE_ACCOUNT' :
-
+				sendToApiAi(senderID, 'I want online account information');
 			break;
 		case 'HOW_TO_REFWORKS' :
-
+				sendToApiAi(senderID, 'How do you use refworks?');
 			break;
 		case 'PRINT_CREDIT' :
 
@@ -1077,12 +1082,31 @@ function getGymInfo(recipientId, action, day){
  * Function to make HTTP request to daire's Library API
  * @param {*} recipientId 
  */
-function getLibraryInfo(recipientId){
+function getLibraryInfo(recipientId, action){
 
-	var options = {
-		url: "https://daireapi.herokuapp.com/", 
-		method : "GET"
+	var options;
+
+	if(action == 'library-pin-not-enrolled'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
 	}
+
+	else if (action == 'library-pin-recovery-picked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+
+	else if(action == 'library-online-account-picked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+
 
 	request(options, function(error, res, body){
 
