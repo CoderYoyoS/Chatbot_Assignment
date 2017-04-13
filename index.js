@@ -734,7 +734,7 @@ function receivedPostback(event) {
 				sendToApiAi(senderID, 'I want to locate a book');
 			break;
 		case 'LAPTOP_LOAN' :
-				sendToApi(senderID, 'i want to borrow a laptop')
+				sendToApiAi(senderID, 'i want to borrow a laptop')
 			break;
 		default:
 			//unindentified payload
