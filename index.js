@@ -269,7 +269,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				getLibraryInfo(sender, action);
 			break;
 		case 'libary-laptop-loan-clicked':
-				getLibraryInfo(senderID, action);
+				getLibraryInfo(sender, action);
 			break;
 		
 		/***************** Gym Actions **********************/
