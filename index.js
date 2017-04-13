@@ -182,7 +182,7 @@ function handleMessageAttachments(messageAttachments, senderID){
  */
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
-		
+
 	//send payload to api.ai
 	sendToApiAi(senderID, quickReplyPayload);
 }
@@ -254,6 +254,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				getLibraryInfo(sender, action);
 			break;	
 		case 'library-refworks-sign-up-clicked':
+				getLibraryInfo(sender, action);
+			break;
+		case 'library-refworks-more-information-clicked' :
 				getLibraryInfo(sender, action);
 			break;
 		case 'library-print-check-balance-clicked' :
@@ -994,6 +997,14 @@ function getLibraryInfo(recipientId, action){
 			method : "GET"
 		}
 	}
+
+	else if(action == 'library-refworks-more-information-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}		
+	}
+
 	//user wants link to check balance
 	else if(action == 'library-print-check-balance-clicked' || action == 'library-print-top-up-clicked'){
 		options = {
