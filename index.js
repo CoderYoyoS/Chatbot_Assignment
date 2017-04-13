@@ -3,14 +3,13 @@
  * undeclared variables
  */
 'use strict';
-
 const config = require('./config');
 const apiai = require('apiai');
 const express = require('express');
-const uuid = require('uuid');
-const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const request = require('request');
+const uuid = require('uuid');
+const crypto = require('crypto');
 const app = express();
 
 
@@ -30,7 +29,7 @@ if (!config.API_AI_CLIENT_ACCESS_TOKEN) {
 if (!config.FB_APP_SECRET) {
 	throw new Error('missing FB_APP_SECRET');
 }
-if (!config.SERVER_URL) { //used for ink to static files
+if (!config.SERVER_URL) { 
 	throw new Error('missing SERVER_URL');
 }
 
@@ -49,8 +48,7 @@ app.use(bodyParser.json())
  * Set up API.ai with the access token in Config.js
  */
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
-	language: "en",
-	requestSource: "fb"
+	 language: "en", requestSource: "fb" 
 });
 
 const sessionIds = new Map();
@@ -91,12 +89,9 @@ app.post('/webhook/', function (req, res) {
 			var pageID = entry.id;
 			var timeOfEvent = entry.time;
 
-			// Iterate over each messaging event
+			// Iterate over each messaging event and handle accordingly
 			entry.messaging.forEach(function (messagingEvent) {
-				if (messagingEvent.optin) {
-					receivedAuthentication(messagingEvent);
-				} 
-				else if (messagingEvent.message) {
+				if(messagingEvent.message) {
 					receivedMessage(messagingEvent);
 				} 
 				else if (messagingEvent.delivery) {
@@ -105,9 +100,6 @@ app.post('/webhook/', function (req, res) {
 				else if (messagingEvent.postback) {
 					receivedPostback(messagingEvent);
 				} 
-				else if (messagingEvent.read) {
-					receivedMessageRead(messagingEvent);
-				}
 				else {
 					Console.log("Unknown event type ..")
 				}
@@ -118,6 +110,8 @@ app.post('/webhook/', function (req, res) {
 		res.sendStatus(200);
 	}
 });
+
+
 
 /**
  * Function for receiving messageEvent.Messages
@@ -130,7 +124,6 @@ function receivedMessage(event) {
 	var recipientID = event.recipient.id;
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
-
 
 	if (!sessionIds.has(senderID)) {
 		sessionIds.set(senderID, uuid.v1());
@@ -170,7 +163,7 @@ function receivedMessage(event) {
  * @param {*} senderID 
  */
 function handleMessageAttachments(messageAttachments, senderID){
-	sendTextMessage(senderID, "Attachment received. Thank you.");	
+	sendTextMessage(senderID, "Nice 😎");	
 }
 
 
@@ -182,7 +175,6 @@ function handleMessageAttachments(messageAttachments, senderID){
  */
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
-
 	//send payload to api.ai
 	sendToApiAi(senderID, quickReplyPayload);
 }
@@ -200,9 +192,6 @@ function handleEcho(messageId, appId, metadata) {
 
 
 /**
- * ************** THIS IS WHERE MOST OF OUR CODING WILL BE DONE *************************
- * 
- * 
  * Used to handle API.ai responses
  * @param {*} sender 
  * @param {*} action 
@@ -343,7 +332,7 @@ function handleMessage(message, sender) {
 
 
 /**
- * These are used for sending cards to
+ * This is used for sending cards to
  * facebook user
  * @param {*} messages 
  * @param {*} sender 
@@ -645,23 +634,12 @@ function callSendAPI(messageData) {
 		method: 'POST',
 		json: messageData
 	}, function (error, response, body) {
-
-		//If there is no error
-		if (!error && response.statusCode == 200) {
-
-			//Set the ID of the User
-			var recipientId = body.recipient_id;
-			var messageId = body.message_id;
-
-
-			if (messageId) {
-				console.log("Successfully sent message with id %s to recipient %s",
-					messageId, recipientId);
-			} else {
-				console.log("Successfully called Send API for recipient %s",
-					recipientId);
-			}
+		if(error){
+			console.log(error);
+		}else{
+			console.log("Message Sent successfully");
 		}
+		
 	});
 }
 
@@ -681,12 +659,10 @@ function receivedPostback(event) {
 	// button for Structured Messages. 
 	var payload = event.postback.payload;
 
-	console.log('\x1b[36m', "----- "+ payload +" --------", '\x1b[0m');
-
 	switch (payload) {
-		case 'GET_STARTED' :
 
-			console.log('\x1b[36m', "----- I GOT TO THE GET STARTED PAYLOAD --------", '\x1b[0m');
+		//messages sent if get started button is clicked
+		case 'GET_STARTED' :
 
 			var messageData = {
 				recipient: { 
@@ -715,6 +691,8 @@ function receivedPostback(event) {
 			};
 			callSendAPI(messageData);
 			break;
+		
+		//Card template postbacks
 		case 'LIBRARY_OPENING' :					
 				sendToApiAi(senderID, 'What time does the library open at?');
 			break;
@@ -734,8 +712,6 @@ function receivedPostback(event) {
 				sendToApiAi(senderID, 'I want to locate a book');
 			break;
 		case 'LAPTOP_LOAN' :
-
-				console.log('\x1b[36m', "----- GOT TO LOAN PAYLOAD --------", '\x1b[0m');
 				sendToApiAi(senderID, 'i want to borrow a laptop');
 			break;   
 		default:
@@ -743,21 +719,6 @@ function receivedPostback(event) {
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
 			break;
 	}
-}
-
-
-/**
- * Message Read Event
- * This event is called when the bots message has been read by the user
- * @param {*} event 
- */
-function receivedMessageRead(event) {
-	var senderID = event.sender.id;
-	var recipientID = event.recipient.id;
-
-	// All messages before watermark (a timestamp) or sequence have been seen.
-	var watermark = event.read.watermark;
-	var sequenceNumber = event.read.seq;
 }
 
 
@@ -773,12 +734,12 @@ function receivedDeliveryConfirmation(event) {
 	var watermark = delivery.watermark;
 	var sequenceNumber = delivery.seq;
 
+	//confirm message has been delivered
 	if (messageIDs) {
 		messageIDs.forEach(function (messageID) {
 			console.log("Received delivery confirmation for message ID: %s",messageID);
 		});
 	}
-	console.log("All message before %d were delivered.", watermark);
 }
 
 /**
@@ -796,7 +757,7 @@ function verifyRequestSignature(req, res, buf) {
 
 	//If their is no signature throw an error
 	if (!signature) {
-		throw new Error('Couldn\'t validate the signature.');
+		throw new Error('Couldn\'t validate the signature from the request header.');
 	} else {
 		var elements = signature.split('=');
 		var method = elements[0];
@@ -814,6 +775,7 @@ function verifyRequestSignature(req, res, buf) {
 		}
 	}
 }
+
 
 /**
  * Function used to check if a variable has a 
@@ -836,20 +798,20 @@ function isDefined(obj) {
 }
 
 
-/************* API FUNCTIONS *****************/
+/********************* API FUNCTIONS *****************/
 
 /**
  * Function to make HTTP request to Aarons Dublin bus API
  * @param {*} recipientId 
  */
 function getDublinBusTimes(recipientId, stopId, busNum){
+
 	var options = {
 		url: "https://aaronapi.herokuapp.com/bus/" + stopId + "/" + busNum + "/", 
 		method : "GET"
 	}
-	
+	//Make a request to the API
 	request(options, function(error, res, body){
-            console.log('\x1b[36m', res.body, '\x1b[0m');
 
 			var text = res.body;
 			var messageData = {
@@ -999,14 +961,13 @@ function getLibraryInfo(recipientId, action){
 			method : "GET"
 		}
 	}
-
+	//User requires moren info on refworks
 	else if(action == 'library-refworks-more-information-clicked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
 			method : "GET"
 		}		
 	}
-
 	//user wants link to check balance
 	else if(action == 'library-print-check-balance-clicked' || action == 'library-print-top-up-clicked'){
 		options = {
@@ -1014,14 +975,14 @@ function getLibraryInfo(recipientId, action){
 			method : "GET"
 		}
 	}
-
+	//User want's to know how to locate a book
 	else if (action == 'library-locate-book-clicked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
 			method : "GET"
 		}
 	}
-
+	//User wants to know how to borrow a laptop
 	else if (action == 'libary-laptop-loan-clicked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
@@ -1029,6 +990,7 @@ function getLibraryInfo(recipientId, action){
 		}
 	}
 
+	// Make request to the API
 	request(options, function(error, res, body){
 
 			var text = res.body;
@@ -1041,7 +1003,7 @@ function getLibraryInfo(recipientId, action){
 					quick_replies:[
 						{
 							content_type :"text",
-							title : "More Library Info",
+							title : "More Library Info 📘",
 							payload : "Library"
 						},
 						{
@@ -1064,10 +1026,9 @@ function getLibraryInfo(recipientId, action){
 
 /*********************************************** */
 
-
 /**
  * Run the app on the given port
  */
 app.listen(app.get('port'), function () {
-	console.log('Chatbot server running on port', app.get('port'))
+	console.log('Chatbot server  is running on port', app.get('port'))
 })
