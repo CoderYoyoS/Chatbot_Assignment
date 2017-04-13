@@ -245,10 +245,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		/*************** Library Actions ********************/
 
-
-				// cases go here
-
-
+		case 'library-pin-forgotten-picked' :
+				getLibraryInfo(sender, action)
+			break
 
 		/***************** Gym Actions **********************/
 
@@ -810,10 +809,26 @@ function receivedPostback(event) {
 			};
 			callSendAPI(messageData);
 			break;
-		case 'LIBRARY_OPENING' :
-				console.log("------ GOT TO LIBRARY POSTBACK ----------");
-					
+		case 'LIBRARY_OPENING' :					
 				sendToApiAi(senderID, 'What time does the library open at?');
+			break;
+		case 'FORGOTTEN_PIN' :
+				sendToApiAi(senderID, 'I have forgotten my pin')
+			break;
+		case 'ONLINE_ACCOUNT' :
+
+			break;
+		case 'HOW_TO_REFWORKS' :
+
+			break;
+		case 'PRINT_CREDIT' :
+
+			break;
+		case 'LOCATE_BOOK' :
+
+			break;
+		case 'LAPTOP_LOAN' :
+
 			break;
 		default:
 			//unindentified payload
