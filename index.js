@@ -254,6 +254,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		case 'library-online-account-picked' :
 				getLibraryInfo(sender, action);
 			break;	
+		case 'library-refworks-sign-up-clicked':
+				getLibraryInfo(sender, action);
+			break;
+		case 'library-print-check-balance-clicked' :
+				getLibraryInfo(sender, action);
+			break;
 		/***************** Gym Actions **********************/
 
 		case "gym-class-times-days-picked" :
@@ -827,13 +833,13 @@ function receivedPostback(event) {
 				sendToApiAi(senderID, 'How do you use refworks?');
 			break;
 		case 'PRINT_CREDIT' :
-
+				sendToApiAi(senderID, 'I want to know about my print credit');
 			break;
 		case 'LOCATE_BOOK' :
-
+				sendToApiAi(senderID, 'I want to locate a book');
 			break;
 		case 'LAPTOP_LOAN' :
-
+				sendToApi(senderID, 'i want to borrow a laptop')
 			break;
 		default:
 			//unindentified payload
@@ -1086,13 +1092,14 @@ function getLibraryInfo(recipientId, action){
 
 	var options;
 
+	//User wants link to enrol in password recovery
 	if(action == 'library-pin-not-enrolled'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
 			method : "GET"
 		}
 	}
-
+	//User wants link to recover pin
 	else if (action == 'library-pin-recovery-picked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
@@ -1100,13 +1107,34 @@ function getLibraryInfo(recipientId, action){
 		}
 	}
 
+	//User clicked on online account
 	else if(action == 'library-online-account-picked'){
 		options = {
 			url: "https://daireapi.herokuapp.com/", 
 			method : "GET"
 		}
 	}
-
+	//User wants link to sign up for refworks
+	else if (action == 'library-refworks-sign-up-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+	//User wants more information on refworks
+	else if(action == 'library-refworks-more-information-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
+	//user wants link to check balance
+	else if(action == 'library-print-check-balance-clicked'){
+		options = {
+			url: "https://daireapi.herokuapp.com/", 
+			method : "GET"
+		}
+	}
 
 	request(options, function(error, res, body){
 
@@ -1118,6 +1146,11 @@ function getLibraryInfo(recipientId, action){
 				message: {
 					text: res.body,
 					quick_replies:[
+						{
+							content_type :"text",
+							title : "More Library Info",
+							payload : "Library"
+						},
 						{
 							content_type :"text",
 							title : "Main Menu 💬",
