@@ -884,14 +884,14 @@ function getLibraryInfo(recipientId, action){
 	//User wants link to enrol in password recovery
 	if(action == 'library-pin-not-enrolled'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/pin/notenrolled", 
 			method : "GET"
 		}
 	}
 	//User wants link to recover pin
 	else if (action == 'library-pin-recovery-picked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/pin/recovery", 
 			method : "GET"
 		}
 	}
@@ -899,49 +899,42 @@ function getLibraryInfo(recipientId, action){
 	//User clicked on online account
 	else if(action == 'library-online-account-picked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/account", 
 			method : "GET"
 		}
 	}
 	//User wants link to sign up for refworks
 	else if (action == 'library-refworks-sign-up-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/refwork/signup", 
 			method : "GET"
 		}
 	}
 	//User wants more information on refworks
 	else if(action == 'library-refworks-more-information-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/refwork/moreinformation", 
 			method : "GET"
 		}
-	}
-	//User requires moren info on refworks
-	else if(action == 'library-refworks-more-information-clicked'){
-		options = {
-			url: "https://daireapi.herokuapp.com/", 
-			method : "GET"
-		}		
 	}
 	//user wants link to check balance
 	else if(action == 'library-print-check-balance-clicked' || action == 'library-print-top-up-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/printcredit", 
 			method : "GET"
 		}
 	}
 	//User want's to know how to locate a book
 	else if (action == 'library-locate-book-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/bookfind", 
 			method : "GET"
 		}
 	}
 	//User wants to know how to borrow a laptop
 	else if (action == 'libary-laptop-loan-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/", 
+			url: "https://daireapi.herokuapp.com/library/library/laptop", 
 			method : "GET"
 		}
 	}
