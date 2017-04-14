@@ -1,0 +1,145 @@
+{
+  "userSays": [
+    {
+      "id": "8db172ea-3cfd-4b8c-988a-91758f8de12c",
+      "data": [
+        {
+          "text": "youre a faggot"
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    },
+    {
+      "id": "7dcf0d05-a8be-46d5-b8ae-c24255f6ba8e",
+      "data": [
+        {
+          "text": "arse hole"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "6878dfa8-48d7-45a0-a80a-bc7fe36a0e13",
+      "data": [
+        {
+          "text": "queer",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "5318f1bf-e665-4b55-966d-37c783c6c917",
+      "data": [
+        {
+          "text": "wanker",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "bff8bb2c-6901-456f-819b-2dcca89d6f8b",
+      "data": [
+        {
+          "text": " you\u0027re a "
+        },
+        {
+          "text": "bitch",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "5d4cdbae-2f2f-4aef-a2c9-320acdbd80d8",
+      "data": [
+        {
+          "text": "cunt",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "91cebe47-1e8f-43c4-9ab2-993b271b5d1e",
+      "data": [
+        {
+          "text": "shut the fuck up"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "20a51747-42db-4522-b513-4836b9ebc2cc",
+      "data": [
+        {
+          "text": "fuck you"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "c60ec196-a257-47d3-98a6-e3633e26d810",
+      "data": [
+        {
+          "text": "Fuck",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "off",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "5f882fca-fdfa-4e2c-a9d8-c4fb2e4378e8",
+  "name": "bad-language",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "No need for that kind of language mate",
+            "that\u0027s not very nice...",
+            "that hurt me :(",
+            "I will report you to your course coordinator.",
+            "You have been reported to your course coordinator for being rude:)",
+            "Surprise, i gonna report you to your course coordinator HAHA",
+            "You are not a very nice person."
+          ]
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

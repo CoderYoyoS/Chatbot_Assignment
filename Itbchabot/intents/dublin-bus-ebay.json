@@ -1,0 +1,121 @@
+{
+  "userSays": [
+    {
+      "id": "fbfdbd9b-ce2b-46d5-84ba-32f03a8babc4",
+      "data": [
+        {
+          "text": "ebay",
+          "alias": "bus-areas",
+          "meta": "@bus-areas",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "35748f01-aca4-48ec-9fd7-842838bae730",
+      "data": [
+        {
+          "text": "Ebay",
+          "alias": "bus-areas",
+          "meta": "@bus-areas",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    }
+  ],
+  "id": "dffbdbe3-a612-4e4e-aeb7-4f0e05bf17e9",
+  "name": "dublin-bus-ebay",
+  "auto": true,
+  "contexts": [
+    "dublin-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pick-ebay-bus",
+      "affectedContexts": [
+        {
+          "name": "pick-ebay-route",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@bus-areas",
+          "name": "bus-areas",
+          "value": "$bus-areas",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "Which bus do you want? 🤔",
+                      "image_url": "https://media.glassdoor.com/l/62/47/cb/5a/ebay-dublin-campus.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "All Routes🚌",
+                  "payload": "All Routes🚌"
+                },
+                {
+                  "content_type": "text",
+                  "title": "220 to Ballymun",
+                  "payload": "220 Towards Ballymun"
+                },
+                {
+                  "content_type": "text",
+                  "title": "236 to Blanch Centre",
+                  "payload": "236 Towards Blanchardstown Centre"
+                },
+                {
+                  "content_type": "text",
+                  "title": "238 to Tyrrelstown",
+                  "payload": "238 to Tyrrelstown"
+                },
+                {
+                  "content_type": "text",
+                  "title": "70D to Dunboyne",
+                  "payload": "70d to Dunboyne"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

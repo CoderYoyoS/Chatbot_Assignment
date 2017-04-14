@@ -1,0 +1,45 @@
+{
+  "userSays": [],
+  "id": "fb9f8569-949b-4acf-89ab-7cd4072d4442",
+  "name": "Default Fallback Intent",
+  "auto": false,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "I didn\u0027t get that. Can you say it again?",
+            "Sorry, could you say that again?",
+            "Sorry, can you say that again?",
+            "Sorry, I didn\u0027t get that.",
+            "Sorry, what was that?",
+            "Say that again?",
+            "I didn\u0027t get that.",
+            "I missed that.",
+            "I didn\u0027t understand.. but help comes to those who ask for it",
+            "I don\u0027t understand :( i am still learning..."
+          ]
+        },
+        {
+          "title": "Do you need help? 🤔",
+          "replies": [
+            "Help me 🙌",
+            "No thanks 👎"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": true,
+  "events": []
+}

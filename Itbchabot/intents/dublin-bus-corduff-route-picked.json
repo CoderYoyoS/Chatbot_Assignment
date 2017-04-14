@@ -1,0 +1,117 @@
+{
+  "userSays": [
+    {
+      "id": "cef17d9d-b970-4fd2-8ed7-cfbb7b6bf9ec",
+      "data": [
+        {
+          "text": "38A",
+          "alias": "bus_id",
+          "meta": "@corduff-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Burlington"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "59658e83-9293-4d71-bb32-9f2499efe32f",
+      "data": [
+        {
+          "text": "38",
+          "alias": "bus_id",
+          "meta": "@corduff-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Burlington"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "448e29fd-c31a-4c59-82cc-2c2afbaadbde",
+      "data": [
+        {
+          "text": "238",
+          "alias": "bus_id",
+          "meta": "@corduff-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Ladys Well"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "9db7c274-2091-494e-a1df-2432d4ebf4a4",
+      "data": [
+        {
+          "text": "220",
+          "alias": "bus_id",
+          "meta": "@corduff-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Ladys Well"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "8d215920-1f2c-480a-82ec-ce0a5f679dc0",
+      "data": [
+        {
+          "text": "All",
+          "alias": "bus_id",
+          "meta": "@corduff-busses",
+          "userDefined": true
+        },
+        {
+          "text": " Routes🚌"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "286fc4a3-e80f-41cc-ad8a-7ed37b09b4e1",
+  "name": "dublin-bus-corduff-route-picked",
+  "auto": true,
+  "contexts": [
+    "pick-corduff-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "corduff-route-picked",
+      "affectedContexts": [
+        {
+          "name": "corduff-route-picked",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@corduff-busses",
+          "name": "bus_id",
+          "value": "$bus_id",
+          "isList": false
+        }
+      ],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

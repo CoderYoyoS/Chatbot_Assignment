@@ -1,0 +1,164 @@
+{
+  "userSays": [
+    {
+      "id": "b409fbb8-03ba-4b36-9cac-e89c5ea7dfbc",
+      "data": [
+        {
+          "text": "i need to check my mail"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "53fb6d73-ca37-4f4c-8e22-cbc6baeffe74",
+      "data": [
+        {
+          "text": "Where can i check my mail?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "c10f9084-6fea-4c90-85f3-f53f3bd4bcc6",
+      "data": [
+        {
+          "text": "Show the college websites"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "bcfda195-52b9-4f98-9ede-8b9465d74dfd",
+      "data": [
+        {
+          "text": "moodle login page"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "0f4b7ba9-9c7e-476b-8502-61cd6304f5ef",
+      "data": [
+        {
+          "text": "give me the eportal page"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "219b61cf-8b43-48b9-89ce-28d1430cd6d1",
+      "data": [
+        {
+          "text": "can i have the student email page"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "18b22f07-4cd8-4f3c-a08b-6bf026cd6d8a",
+      "data": [
+        {
+          "text": "can i have the student email page please?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "2868a216-a21f-434d-88f6-f8b0a3320e93",
+      "data": [
+        {
+          "text": "Can you give me the college websites"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e88383df-631f-4fa2-8d38-42b7b6802552",
+      "data": [
+        {
+          "text": "Can i have the moodle page?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "b2addcc1-2f68-488a-b283-386541ea3f8d",
+      "data": [
+        {
+          "text": "College websites"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "f1b1e89e-8146-4ef8-82d7-f513f173bc98",
+  "name": "college-websites",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "button",
+                  "text": "Which site do you need?",
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": "https://moodle.itb.ie/login/index.php",
+                      "title": "Moodle",
+                      "webview_height_ratio": "tall"
+                    },
+                    {
+                      "type": "web_url",
+                      "url": "https://goo.gl/MwLMx4",
+                      "title": "Student Email",
+                      "webview_height_ratio": "tall"
+                    },
+                    {
+                      "type": "web_url",
+                      "url": "http://tesla.itb.ie/eportal/index.jsp",
+                      "title": "Eportal",
+                      "webview_height_ratio": "tall"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "type": 4
+        },
+        {
+          "title": "Done and want to return? :)",
+          "replies": [
+            "Main menu please✔️",
+            "No thanks. ✖️"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

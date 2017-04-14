@@ -1,0 +1,34 @@
+{
+  "userSays": [
+    {
+      "id": "c23fe791-9269-4cc0-a939-045c9a4e26a4",
+      "data": [
+        {
+          "text": "Check my balance"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "e53ea3fa-5b98-4369-a802-df0dcee61cef",
+  "name": "library-print-check-balance",
+  "auto": true,
+  "contexts": [
+    "library-print"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-print-check-balance-clicked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

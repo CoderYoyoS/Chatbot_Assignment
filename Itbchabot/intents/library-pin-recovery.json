@@ -1,0 +1,39 @@
+{
+  "userSays": [
+    {
+      "id": "c789d03c-4ee5-49d7-85db-b2ac4c5ad180",
+      "data": [
+        {
+          "text": "Password Recovery"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "5a3a96dc-8ca8-4e85-8f54-66b87e83916a",
+  "name": "library-pin-recovery",
+  "auto": true,
+  "contexts": [
+    "library-pin"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-pin-recovery-picked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

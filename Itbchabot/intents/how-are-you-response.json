@@ -1,0 +1,80 @@
+{
+  "userSays": [
+    {
+      "id": "912f5d8b-894c-40f2-97ae-104608ec0318",
+      "data": [
+        {
+          "text": "I am fine"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "7d1fafce-fc97-4164-b510-e6b2f1c277f6",
+      "data": [
+        {
+          "text": "I am happy"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "c7e88338-b33a-4f7b-86fa-9a70a1c758ce",
+      "data": [
+        {
+          "text": "im okay i suppose"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "75349f13-7b35-41d6-ac22-6249ab9facbf",
+      "data": [
+        {
+          "text": "im not too bad"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "7a2eddf5-45d9-4c6b-a294-8b2a8246b9a7",
+      "data": [
+        {
+          "text": "I\u0027m good"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "8c8f9f2b-1ae4-4258-8a43-c6cb9444ddbf",
+  "name": "how-are-you-response",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "Lovely 🙂",
+            "Nice 🙂",
+            "That\u0027s great 🙂 Hope you are having a great day"
+          ]
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

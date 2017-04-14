@@ -1,0 +1,45 @@
+{
+  "userSays": [
+    {
+      "id": "022bd6d8-4094-4bf5-9152-b96dec2af563",
+      "data": [
+        {
+          "text": "Get Started"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "e2667353-180a-425e-8b53-4c1d428234e7",
+  "name": "get-started",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Hi, I am the ITB Chatbot. 🤖 Im here to help you through college and make your college life easier😃"
+        },
+        {
+          "title": "So lets get started 😏",
+          "replies": [
+            "What can you do?",
+            "Who made you?",
+            "Privacy policy"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,132 @@
+{
+  "userSays": [
+    {
+      "id": "52f3b892-2d1a-46b3-b7cb-b8c3b0d9d78b",
+      "data": [
+        {
+          "text": "270",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Dunboyne"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "878ac129-cad2-4e43-b901-4bddadf73bb4",
+      "data": [
+        {
+          "text": "239",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Liffey Valley"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "d7ad2acd-ee5e-4be4-878e-8814cf139fcd",
+      "data": [
+        {
+          "text": "238",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Ladys Well"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "acea5bd0-755c-4487-ac7d-215724fc98cb",
+      "data": [
+        {
+          "text": "220",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Ladys Well"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e18b9916-0108-495d-907e-e7963307d46b",
+      "data": [
+        {
+          "text": "39",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Ongar"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "0c4016e3-9363-4dc3-8cf6-0ef049485c57",
+      "data": [
+        {
+          "text": "39A",
+          "alias": "bus_id",
+          "meta": "@blanch-centre-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Ongar"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "dfaeb854-f4dd-426b-ba01-9cabbb87ae0c",
+  "name": "dublin-bus-blanch-centre-route-picked",
+  "auto": true,
+  "contexts": [
+    "blanch-centre-side-route-picked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "blanch-centre-side-route-picked",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@blanch-centre-side-busses",
+          "name": "bus_id",
+          "value": "$bus_id",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

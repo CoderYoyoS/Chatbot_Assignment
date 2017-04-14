@@ -1,0 +1,94 @@
+{
+  "userSays": [
+    {
+      "id": "501eed0e-8426-4793-9c99-f7bfa5933d37",
+      "data": [
+        {
+          "text": "Gym"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "abe95e8b-0d2a-4775-bd50-35df510fadf3",
+  "name": "gym",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "Gym-clicked",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "What do you want to know? 🏋",
+                      "image_url": "http://www.itb.ie/CampusStudentLife/images/Pavillion.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "Class Times",
+                  "payload": "Class Times"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Opening Times",
+                  "payload": "Opening Times"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Equipment",
+                  "payload": "Equipment"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Facilities",
+                  "payload": "Facilities"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        },
+        {
+          "buttons": [],
+          "type": 1
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

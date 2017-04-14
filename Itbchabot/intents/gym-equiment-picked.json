@@ -1,0 +1,39 @@
+{
+  "userSays": [
+    {
+      "id": "0dc99e02-20ec-4623-b3ce-f2a15770dd28",
+      "data": [
+        {
+          "text": "Equipment"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "034c10b4-244f-4f8f-ada0-cc8e02d10551",
+  "name": "gym-equiment-picked",
+  "auto": true,
+  "contexts": [
+    "Gym-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "gym-equipment-picked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

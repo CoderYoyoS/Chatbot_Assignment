@@ -1,0 +1,37 @@
+{
+  "userSays": [
+    {
+      "id": "674cf236-79ff-4e77-a38a-8f44503efb20",
+      "data": [
+        {
+          "text": "Top Up"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "47ba6011-d7e5-4aae-a72d-d2cb5f039475",
+  "name": "library-print-top-up",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-print-top-up-clicked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

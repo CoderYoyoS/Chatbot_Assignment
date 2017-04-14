@@ -1,0 +1,47 @@
+{
+  "userSays": [
+    {
+      "id": "b4d68352-65e9-40be-b505-196cead82a31",
+      "data": [
+        {
+          "text": "i want to borrow a laptop"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "fe869808-66d6-48ab-83d1-c9b31d8a4f66",
+      "data": [
+        {
+          "text": "Laptop Loan"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "8bc94c62-df04-40ca-8f89-ba656fd4af7c",
+  "name": "library-laptop-loan",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "libary-laptop-loan-clicked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

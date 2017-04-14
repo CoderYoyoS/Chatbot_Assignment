@@ -1,0 +1,34 @@
+{
+  "userSays": [
+    {
+      "id": "e0bed5cc-f671-46de-9640-7bcb6d5aaa16",
+      "data": [
+        {
+          "text": "Opening Times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "69ee56d6-0d09-4a97-a2fa-8b362383b28a",
+  "name": "gym-opening-times",
+  "auto": true,
+  "contexts": [
+    "Gym-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "gym-opening-times-picked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

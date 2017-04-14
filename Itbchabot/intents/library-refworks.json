@@ -1,0 +1,80 @@
+{
+  "userSays": [
+    {
+      "id": "68e05a55-4136-4f03-9a5b-6fbf20a90497",
+      "data": [
+        {
+          "text": "How do i log in to refworks?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "4946ff1c-53a8-45dc-9c4a-c0b9fb7bd2f5",
+      "data": [
+        {
+          "text": "I don\u0027t know how to use refworks"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "d7a33297-5954-45da-8a3b-ce6b8fc8a04f",
+      "data": [
+        {
+          "text": "What is refworks?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e45ac31b-f22b-47bf-80ac-7141d3430f34",
+      "data": [
+        {
+          "text": "How do you use refworks?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "e200b444-4820-47fd-a1bb-fc922bbd0c2e",
+  "name": "library-refworks",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "library-refworks-clicked",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "RefWorks is a web-based bibliography and database manager that allows you to create your own personal database. You can use these references in writing papers and automatically format the paper and the bibliography in seconds."
+        },
+        {
+          "title": "Here\u0027 some useful stuff",
+          "replies": [
+            "Sign up",
+            "More information"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

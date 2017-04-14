@@ -1,0 +1,103 @@
+{
+  "userSays": [
+    {
+      "id": "4128dd4b-6705-4d72-aba6-d934b1691cf1",
+      "data": [
+        {
+          "text": "Blanch centre"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "82d7379a-fc1e-4e85-9056-dd0d886555ea",
+      "data": [
+        {
+          "text": "i need to get a bus from blanch shopping centre."
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "b308bf51-7314-4b2e-b6f0-11d1fa0c9491",
+      "data": [
+        {
+          "text": "i need the blanchardstown shopping centre bus times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "3240f182-e5b1-4944-b17d-75e369ab3298",
+  "name": "dublin-bus-blanch",
+  "auto": true,
+  "contexts": [
+    "dublin-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pick-blanch-side",
+      "affectedContexts": [
+        {
+          "name": "pick-blanch-side",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "Which bus stop do you want? 🤔",
+                      "image_url": "https://farm6.staticflickr.com/5708/22400688731_6d0862b4bd_c.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "📍Centre Side",
+                  "payload": "📍Centre Side"
+                },
+                {
+                  "content_type": "text",
+                  "title": "📍Retail Park Side",
+                  "payload": "📍Retail Park Side"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

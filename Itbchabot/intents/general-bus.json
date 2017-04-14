@@ -1,0 +1,60 @@
+{
+  "userSays": [
+    {
+      "id": "21673dda-daf8-495f-b632-530496be7ac8",
+      "data": [
+        {
+          "text": "bus"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "a4cfd65d-6d8d-4f64-95b3-031669e69034",
+      "data": [
+        {
+          "text": "give me bus times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "dd8a7c47-df94-4319-9905-3c8e695064c8",
+      "data": [
+        {
+          "text": "I need a bus"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "b909f69e-4a27-45df-b17a-78591e68965b",
+  "name": "general-bus",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "title": "Do you mean Dublin bus or shuttle bus?🤔",
+          "replies": [
+            "Dublin Bus 🚍",
+            "Shuttle bus 🚌"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

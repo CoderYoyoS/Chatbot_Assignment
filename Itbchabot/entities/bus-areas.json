@@ -1,0 +1,51 @@
+{
+  "id": "965691da-20a6-4edd-afe2-71fe254af19b",
+  "name": "bus-areas",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "Corduff",
+      "synonyms": [
+        "Corduff"
+      ]
+    },
+    {
+      "value": "🚏 Centre Side",
+      "synonyms": [
+        "🚏 Centre Side"
+      ]
+    },
+    {
+      "value": "🚏 Retail Side",
+      "synonyms": [
+        "🚏 Retail Side"
+      ]
+    },
+    {
+      "value": "Aquatic Centre",
+      "synonyms": [
+        "Aquatic Centre"
+      ]
+    },
+    {
+      "value": "📍Centre Side",
+      "synonyms": [
+        "📍Centre Side"
+      ]
+    },
+    {
+      "value": "Aquatic",
+      "synonyms": [
+        "Aquatic"
+      ]
+    },
+    {
+      "value": "Ebay",
+      "synonyms": [
+        "Ebay"
+      ]
+    }
+  ],
+  "isEnum": true,
+  "automatedExpansion": false
+}

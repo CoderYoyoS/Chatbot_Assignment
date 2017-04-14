@@ -1,0 +1,103 @@
+{
+  "userSays": [
+    {
+      "id": "f26a0af5-57cf-4eae-b20b-c2fba0687544",
+      "data": [
+        {
+          "text": "Class Times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "11f5c5da-4df9-4441-b02b-26b2ccd1d986",
+  "name": "gym-class-times",
+  "auto": true,
+  "contexts": [
+    "Gym-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "class-days-picked",
+      "affectedContexts": [
+        {
+          "name": "gym-class-days",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "What day would you like classes for?🗓️",
+                      "image_url": "https://i.ytimg.com/vi/bQc6G1rjvdA/maxresdefault.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "Monday",
+                  "payload": "Monday"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Tuesday",
+                  "payload": "Tuesday"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Wednesday",
+                  "payload": "Wednesday"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Thursday",
+                  "payload": "Thursday"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Friday",
+                  "payload": "Friday"
+                },
+                {
+                  "content_type": "text",
+                  "title": "Saturday",
+                  "payload": "Saturday"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

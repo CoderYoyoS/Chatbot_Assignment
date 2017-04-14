@@ -1,0 +1,123 @@
+{
+  "userSays": [
+    {
+      "id": "985d1cfb-3a7d-4205-87e8-7e89ee4072ad",
+      "data": [
+        {
+          "text": "All",
+          "alias": "bus_id",
+          "meta": "@ebay-busses",
+          "userDefined": true
+        },
+        {
+          "text": " Routes🚌"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "2fa6fc69-2882-4c4d-9bcc-c525375f0c70",
+      "data": [
+        {
+          "text": "70D",
+          "alias": "bus_id",
+          "meta": "@ebay-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Dunboyne"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "3615bd2d-b4e1-4126-acd3-21cbfad8683c",
+      "data": [
+        {
+          "text": "238",
+          "alias": "bus_id",
+          "meta": "@ebay-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Tyrrelstown"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "5a544936-db79-421b-b716-ad4beb7bc9dc",
+      "data": [
+        {
+          "text": "236",
+          "alias": "bus_id",
+          "meta": "@ebay-busses",
+          "userDefined": true
+        },
+        {
+          "text": " "
+        },
+        {
+          "text": "to Blanchardstown",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        },
+        {
+          "text": " Centre"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "ed068ad9-5fbb-4612-9425-d80d46f94734",
+      "data": [
+        {
+          "text": "220",
+          "alias": "bus_id",
+          "meta": "@ebay-busses",
+          "userDefined": false
+        },
+        {
+          "text": " Towards Ballymun"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "96bf88c3-f386-4e52-b96b-2a876cb97c4b",
+  "name": "dublin-bus-ebay-route-picked",
+  "auto": true,
+  "contexts": [
+    "pick-ebay-route"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "ebay-route-picked",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@ebay-busses",
+          "name": "bus_id",
+          "value": "$bus_id"
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

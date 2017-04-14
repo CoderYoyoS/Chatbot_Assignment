@@ -1,0 +1,131 @@
+{
+  "userSays": [
+    {
+      "id": "fb3a37dd-d46a-4c4e-85a8-ea3d89daeea8",
+      "data": [
+        {
+          "text": "Library"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "c387cf64-6e4f-4c6c-b257-8d3ef510be33",
+  "name": "library",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "library-clicked",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "title": "",
+          "replies": [],
+          "type": 2
+        },
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "General Information",
+                      "image_url": "http://1.bp.blogspot.com/-iNcpLLoTaHM/UbhdC0VeQAI/AAAAAAAAACM/ptH9CMKsWes/s1600/4+SID.JPG",
+                      "subtitle": "Here is some online info",
+                      "buttons": [
+                        {
+                          "type": "postback",
+                          "title": "Opening Times",
+                          "payload": "LIBRARY_OPENING"
+                        },
+                        {
+                          "type": "phone_number",
+                          "title": "Call SID Desk",
+                          "payload": "018851592"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Online",
+                      "image_url": "http://itbstudenthub.ie/wp-content/uploads/2015/08/library-databases-672x372.jpg",
+                      "subtitle": "Here is some online info",
+                      "buttons": [
+                        {
+                          "type": "postback",
+                          "title": "Forgotten Pin",
+                          "payload": "FORGOTTEN_PIN"
+                        },
+                        {
+                          "type": "postback",
+                          "title": "Online Account",
+                          "payload": "ONLINE_ACCOUNT"
+                        },
+                        {
+                          "type": "postback",
+                          "title": "How to use RefWorks",
+                          "payload": "HOW_TO_REFWORKS"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Resources",
+                      "image_url": "http://1.bp.blogspot.com/-fxJWp14S4ug/VFJinKFO25I/AAAAAAAAC1g/Q2biIXObG9Y/s1600/photocopier2.jpg",
+                      "subtitle": "Some resources to the library facilities",
+                      "buttons": [
+                        {
+                          "type": "postback",
+                          "title": "Print Credit",
+                          "payload": "PRINT_CREDIT"
+                        },
+                        {
+                          "type": "postback",
+                          "title": "Locating a book",
+                          "payload": "LOCATE_BOOK"
+                        },
+                        {
+                          "type": "postback",
+                          "title": "Laptop Loan",
+                          "payload": "LAPTOP_LOAN"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

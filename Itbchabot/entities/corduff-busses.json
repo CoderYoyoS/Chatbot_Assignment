@@ -1,0 +1,69 @@
+{
+  "id": "690fdf91-aa73-4cbf-966f-7eb2ec0b79f6",
+  "name": "corduff-busses",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "All routes",
+      "synonyms": [
+        "All routes"
+      ]
+    },
+    {
+      "value": "220 to Ladys well",
+      "synonyms": [
+        "220 to Ladys well"
+      ]
+    },
+    {
+      "value": "238 to Ladys well",
+      "synonyms": [
+        "238 to Ladys well"
+      ]
+    },
+    {
+      "value": "38 to Burlington",
+      "synonyms": [
+        "38 to Burlington"
+      ]
+    },
+    {
+      "value": "38a to Burlington",
+      "synonyms": [
+        "38a to Burlington"
+      ]
+    },
+    {
+      "value": "All",
+      "synonyms": [
+        "All"
+      ]
+    },
+    {
+      "value": "238",
+      "synonyms": [
+        "238"
+      ]
+    },
+    {
+      "value": "38A",
+      "synonyms": [
+        "38A"
+      ]
+    },
+    {
+      "value": "38",
+      "synonyms": [
+        "38"
+      ]
+    },
+    {
+      "value": "220",
+      "synonyms": [
+        "220"
+      ]
+    }
+  ],
+  "isEnum": true,
+  "automatedExpansion": false
+}

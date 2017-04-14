@@ -1,0 +1,99 @@
+{
+  "userSays": [
+    {
+      "id": "5497cfb7-1d8d-4283-b4ad-8b1d937b4aaa",
+      "data": [
+        {
+          "text": "Who developed you?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "b0b3e638-2676-495c-b0de-41d911504803",
+      "data": [
+        {
+          "text": "who created you?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "b0266c99-9b8b-4d21-a27d-1cd3a248bf6c",
+      "data": [
+        {
+          "text": "Who is your creator?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "f9fc2812-9b72-450d-8e99-e448d88cb70c",
+      "data": [
+        {
+          "text": "tell me who made you"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "4aa26615-7145-4738-8801-78d807a358bc",
+      "data": [
+        {
+          "text": "who made the ITB chatbot?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "c87d067c-c7d1-4dcb-b59f-529635235971",
+      "data": [
+        {
+          "text": "who made you?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "1c7233f7-6891-4e47-b8a4-aafe2aa8dfbb",
+  "name": "who-made-you",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "I was made by Aaron Ward, Brian Kelly and Daire Homan :)\nI am part of their year project to give students information easily \nand within one app.",
+            "My creators are Aaron Ward, Brian Kelly and Daire Homan as part of their third year project  for computer science.",
+            "Aaron Ward, Brian Kelly and Daire Homan created me 🙏",
+            "I was developed by three third year students... i think"
+          ]
+        },
+        {
+          "title": "Anything else? :)",
+          "replies": [
+            "What can you do?",
+            "Privacy policy"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

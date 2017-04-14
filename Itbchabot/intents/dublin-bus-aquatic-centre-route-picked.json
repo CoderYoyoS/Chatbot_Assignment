@@ -1,0 +1,137 @@
+{
+  "userSays": [
+    {
+      "id": "26cf5d6a-53ca-4dbf-987c-3c276235ecf0",
+      "data": [
+        {
+          "text": "All",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " Routes🚌"
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    },
+    {
+      "id": "dfbc720c-1639-405d-bd0b-c58fce5de093",
+      "data": [
+        {
+          "text": "All",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " Routes"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e0d2bb66-b391-49a8-abd7-c53c6fca8495",
+      "data": [
+        {
+          "text": "38A",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Burlington Rd"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "70d16625-4a5c-4a70-9e9a-36fe27352af9",
+      "data": [
+        {
+          "text": "38",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Burlington Rd"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "6e481caa-0e04-409a-826b-30c64478f977",
+      "data": [
+        {
+          "text": "236",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Damastown"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "b926452b-97b4-47d9-88a8-3d5a568fcf15",
+      "data": [
+        {
+          "text": "17A",
+          "alias": "bus_id",
+          "meta": "@aquatic-centre-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "Blanch Centre",
+          "meta": "@sys.ignore",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "ec763c0d-f1a5-41b3-b126-1c4b656e33fc",
+  "name": "dublin-bus-aquatic-centre-route-picked",
+  "auto": true,
+  "contexts": [
+    "pick-aquatic-centre-route"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "aquatic-centre-route-picked",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@aquatic-centre-busses",
+          "name": "bus_id",
+          "value": "$bus_id",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

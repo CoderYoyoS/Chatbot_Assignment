@@ -1,0 +1,52 @@
+{
+  "userSays": [
+    {
+      "id": "140b611c-14c2-4555-af51-4d0062639862",
+      "data": [
+        {
+          "text": "Itb to the centre"
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    }
+  ],
+  "id": "52408ab1-b26c-4540-be9b-9b88ddc4ab75",
+  "name": "shuttle-bus-itb-to-centre",
+  "auto": true,
+  "contexts": [
+    "shuttle-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "shuttle-bus",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Today\u0027s bus times are: 08:10, 08:45, 09:20, 09:55, 11:10, 12:10, 13:10, 14:10, 15:10, 16:10, 16:50, 17:25, 18:10"
+        },
+        {
+          "title": "Would you like to go back to the main menu? 🙂",
+          "replies": [
+            "Main menu please 💭",
+            "No thanks ❌"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,108 @@
+{
+  "userSays": [
+    {
+      "id": "0dcfae68-c9ca-4d89-9518-e96bf7dee371",
+      "data": [
+        {
+          "text": "Corduff",
+          "alias": "bus_areas",
+          "meta": "@bus-areas",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "99a5a9d3-ef7f-48a2-99ea-36e5935e0388",
+  "name": "dublin-bus-corduff",
+  "auto": true,
+  "contexts": [
+    "dublin-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pick-corduff-bus",
+      "affectedContexts": [
+        {
+          "name": "pick-corduff-bus",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@bus-areas",
+          "name": "bus_areas",
+          "value": "$bus_areas",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "Which bus do you want? 🤔",
+                      "image_url": "https://s23.postimg.org/obt3h5hwr/corduff_bus_image.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "All Routes🚌",
+                  "payload": "All Routes🚌"
+                },
+                {
+                  "content_type": "text",
+                  "title": "220 to Ladys Well",
+                  "payload": "220 to Ladys Well"
+                },
+                {
+                  "content_type": "text",
+                  "title": "238 to Ladys Well",
+                  "payload": "238 to Ladys Well"
+                },
+                {
+                  "content_type": "text",
+                  "title": "38 to Burlington",
+                  "payload": "38 to Burlington"
+                },
+                {
+                  "content_type": "text",
+                  "title": "38A to Burlington",
+                  "payload": "38A to Burlington"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

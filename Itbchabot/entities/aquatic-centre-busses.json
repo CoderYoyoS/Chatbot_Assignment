@@ -1,0 +1,39 @@
+{
+  "id": "e0c85245-33ea-4f5e-a226-515fa057ce0e",
+  "name": "aquatic-centre-busses",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "17A",
+      "synonyms": [
+        "17A"
+      ]
+    },
+    {
+      "value": "236",
+      "synonyms": [
+        "236"
+      ]
+    },
+    {
+      "value": "38",
+      "synonyms": [
+        "38"
+      ]
+    },
+    {
+      "value": "38A",
+      "synonyms": [
+        "38A"
+      ]
+    },
+    {
+      "value": "All",
+      "synonyms": [
+        "All"
+      ]
+    }
+  ],
+  "isEnum": true,
+  "automatedExpansion": false
+}

@@ -1,0 +1,64 @@
+{
+  "userSays": [
+    {
+      "id": "e3305870-3262-4bca-af19-9f0ddb8cf304",
+      "data": [
+        {
+          "text": "I forgot my password"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "6022d3ba-2eb5-4e33-9c64-0c0c5b3d83ec",
+      "data": [
+        {
+          "text": "I have forgotten my pin"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "a948c777-9f57-409d-8e0a-c4a604c01452",
+  "name": "library-forgotten-pin",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [
+        {
+          "name": "library-pin",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "If you have forgotten your account password, it easily recovered by using the ITB password recovery system🔑",
+            ""
+          ]
+        },
+        {
+          "title": "You need to be enrolled to use this system",
+          "replies": [
+            "I\u0027m not enrolled",
+            "Password recovery"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,63 @@
+{
+  "userSays": [
+    {
+      "id": "2e338f8f-f114-438e-ae2a-8c0bef1ebe82",
+      "data": [
+        {
+          "text": "📍 Retail side",
+          "alias": "bus_areas",
+          "meta": "@bus-areas",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "de8f9c52-fa3f-464f-806a-7161f85b762d",
+  "name": "dublin-bus-blanch-retail-side",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "blanch-retail-side-route-picked",
+      "affectedContexts": [
+        {
+          "name": "blanch-retail-side-route-picked",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@bus-areas",
+          "name": "bus_areas",
+          "value": "$bus_areas",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "title": "Which bus would you like? 🚍",
+          "replies": [
+            "All Routes 📍",
+            "39A to UCD",
+            "17A to Kilbarrack",
+            "220 to Ballymun",
+            "238 to Tyrellstown",
+            "37 to Wilton Terrace",
+            "39 to Burlington",
+            "76A to Tallaght"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

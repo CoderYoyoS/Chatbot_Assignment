@@ -1,0 +1,51 @@
+{
+  "id": "12213739-7ed3-469f-af77-47184f075719",
+  "name": "gym-days",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "Monday",
+      "synonyms": [
+        "Monday"
+      ]
+    },
+    {
+      "value": "Tuesday",
+      "synonyms": [
+        "Tuesday"
+      ]
+    },
+    {
+      "value": "Wednesday",
+      "synonyms": [
+        "Wednesday"
+      ]
+    },
+    {
+      "value": "Thursday",
+      "synonyms": [
+        "Thursday"
+      ]
+    },
+    {
+      "value": "Friday",
+      "synonyms": [
+        "Friday"
+      ]
+    },
+    {
+      "value": "Saturday",
+      "synonyms": [
+        "Saturday"
+      ]
+    },
+    {
+      "value": "Sunday",
+      "synonyms": [
+        "Sunday"
+      ]
+    }
+  ],
+  "isEnum": true,
+  "automatedExpansion": false
+}

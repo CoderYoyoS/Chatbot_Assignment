@@ -1,0 +1,59 @@
+{
+  "userSays": [
+    {
+      "id": "2cdf6706-0b91-4bc4-930a-0d90ba6eaeb9",
+      "data": [
+        {
+          "text": "How do i use my online library account?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "dfd25a4c-c050-475a-b277-001fe366a6c6",
+      "data": [
+        {
+          "text": "I need to know about my account online"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "34924474-15b5-4b0c-b0e8-abd438c6cb04",
+      "data": [
+        {
+          "text": "I want online account information"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "49ea4e39-68d7-4cab-afdf-ff44d7312f56",
+  "name": "library-online-account",
+  "auto": true,
+  "contexts": [
+    "library-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-online-account-picked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Here is some online account information..."
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

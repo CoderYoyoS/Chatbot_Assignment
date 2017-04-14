@@ -1,0 +1,63 @@
+{
+  "id": "c9c0c222-2e95-44aa-8d88-93099a037085",
+  "name": "blanch-retail-side-busses",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "All Routes",
+      "synonyms": [
+        "All Routes"
+      ]
+    },
+    {
+      "value": "39A",
+      "synonyms": [
+        "39A"
+      ]
+    },
+    {
+      "value": "17A",
+      "synonyms": [
+        "17A"
+      ]
+    },
+    {
+      "value": "220",
+      "synonyms": [
+        "220"
+      ]
+    },
+    {
+      "value": "238",
+      "synonyms": [
+        "238"
+      ]
+    },
+    {
+      "value": "37",
+      "synonyms": [
+        "37"
+      ]
+    },
+    {
+      "value": "39",
+      "synonyms": [
+        "39"
+      ]
+    },
+    {
+      "value": "76A",
+      "synonyms": [
+        "76A"
+      ]
+    },
+    {
+      "value": "All",
+      "synonyms": [
+        "All"
+      ]
+    }
+  ],
+  "isEnum": true,
+  "automatedExpansion": false
+}

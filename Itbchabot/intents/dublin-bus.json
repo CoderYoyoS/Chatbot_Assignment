@@ -1,0 +1,99 @@
+{
+  "userSays": [
+    {
+      "id": "e6eeb9b3-6ed0-4c13-a23f-60422b4df4df",
+      "data": [
+        {
+          "text": "I need dublin bus times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "8b5eae41-8171-46e4-aa60-3794996a89a2",
+      "data": [
+        {
+          "text": "What transport can i get?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "6a0b2ceb-628e-4c00-8648-302e14774fd3",
+      "data": [
+        {
+          "text": "I need transport"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "68193761-93aa-4569-85b7-4a37aa6ca1b0",
+      "data": [
+        {
+          "text": "I want to get a bus from corduff"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e6dbc53b-724f-489e-b620-e96d481b6f52",
+      "data": [
+        {
+          "text": "I need a bus from blanchardstown centre"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "923a0854-7b8d-4fc4-b6ee-ecb0ba9d77ca",
+      "data": [
+        {
+          "text": "Can i have the dublin bus times?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "5e28ae78-8e89-4ed3-b70a-75b2a9fa6874",
+  "name": "dublin-bus",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "dublin-bus",
+      "affectedContexts": [
+        {
+          "name": "dublin-bus",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "title": "Where do you want to get the bus from? 🤔",
+          "replies": [
+            "Blanch Centre",
+            "Corduff",
+            "Aquatic Centre",
+            "Ebay"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

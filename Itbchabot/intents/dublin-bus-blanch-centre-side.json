@@ -1,0 +1,63 @@
+{
+  "userSays": [
+    {
+      "id": "dd62c6af-1a61-497f-860b-b63c2d2414df",
+      "data": [
+        {
+          "text": "📍Centre Side",
+          "alias": "bus_areas",
+          "meta": "@bus-areas",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "a3979c6e-8380-4b73-bffc-3ca928a2f74b",
+  "name": "dublin-bus-blanch-centre-side",
+  "auto": true,
+  "contexts": [
+    "pick-blanch-side"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "blanch-centre-side-route-picked",
+      "affectedContexts": [
+        {
+          "name": "blanch-centre-side-route-picked",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@bus-areas",
+          "name": "bus_areas",
+          "value": "$bus_areas",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "title": "Which bus would you like? 🚍",
+          "replies": [
+            "39A to Ongar",
+            "39 to Ongar",
+            "220 to Ladys Well",
+            "238 to Ladys Well",
+            "239 to Liffey Valley",
+            "270 to Dunboyne"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

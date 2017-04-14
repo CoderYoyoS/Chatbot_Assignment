@@ -1,0 +1,72 @@
+{
+  "userSays": [
+    {
+      "id": "6dc69945-4355-41f6-abc3-757272d139f1",
+      "data": [
+        {
+          "text": "I need a book from the library"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "020547b9-1021-497c-83a7-9c4e767bc0ef",
+      "data": [
+        {
+          "text": "How do i find a book in the library?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "8a1c140b-5ce0-4abc-a6ad-b15ee8edae59",
+      "data": [
+        {
+          "text": "I need to find a book in the library"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "638b8532-c48a-40cd-877b-a71d1b5df249",
+      "data": [
+        {
+          "text": "Looking for a book in the library"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "07eae36b-a329-4d49-9fc2-0170d896550d",
+      "data": [
+        {
+          "text": "Locating a book"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "18fbc7df-1b84-41b5-af07-42212a049d50",
+  "name": "library-locating-book",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-locate-book-clicked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

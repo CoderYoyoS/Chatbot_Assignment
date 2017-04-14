@@ -1,0 +1,101 @@
+{
+  "userSays": [
+    {
+      "id": "abfbf7e5-c417-4fbb-a207-781b9e9ee1fc",
+      "data": [
+        {
+          "text": "tell me your name"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "4c035784-db63-4c84-a658-9e3566b6efd6",
+      "data": [
+        {
+          "text": "give me your name."
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "aec72ce5-9176-4cf9-b6e1-4eee641ff6e4",
+      "data": [
+        {
+          "text": "What\u0027s your name?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "320413a5-8ac7-462f-8baf-4cefdb4d2078",
+      "data": [
+        {
+          "text": "do you have a name?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    },
+    {
+      "id": "da4b7341-4087-491e-87f2-0235126e0567",
+      "data": [
+        {
+          "text": "should i call you?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "9895e8ea-458b-4eda-bf1f-07df6cdb42b7",
+      "data": [
+        {
+          "text": "Your name is?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "8418e976-ac0d-4dd0-9d07-7bb95237a8c6",
+      "data": [
+        {
+          "text": " your name?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "35378a0b-f81f-45d5-a24b-366f910587ed",
+  "name": "what-is-your-name",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "I name is ITB bot 🤖",
+            "ITB bot :)",
+            "i am the ITB bot 🤖",
+            "ITB bot at your service"
+          ]
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

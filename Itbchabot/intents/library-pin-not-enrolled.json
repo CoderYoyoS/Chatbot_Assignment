@@ -1,0 +1,34 @@
+{
+  "userSays": [
+    {
+      "id": "fd21c508-0eb9-4f27-bb4b-a073ca6921e8",
+      "data": [
+        {
+          "text": "I\u0027m not enrolled"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "f95a1277-64da-48c7-8eec-e56a1e3e2616",
+  "name": "library-pin-not-enrolled",
+  "auto": true,
+  "contexts": [
+    "library-pin"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-pin-not-enrolled",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,62 @@
+{
+  "userSays": [
+    {
+      "id": "a61abd15-cb64-447e-b940-1d5a8c8d1c36",
+      "data": [
+        {
+          "text": "The centre to ITB"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "74693afe-5563-46bf-be9d-0dc81ffc3b9d",
+      "data": [
+        {
+          "text": "shuttle-bus--centre-to-Itb"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "9c2f9f6b-c8fd-435c-a4a4-0a39abd18698",
+  "name": "shuttle-bus-centre-to-itb",
+  "auto": true,
+  "contexts": [
+    "shuttle-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "shuttle-bus",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Today\u0027s bus times are: 08:00, 08:35, 09:10, 09:45, 10:20, 11:40, 12:40, 13:40, 14:40, 15:40"
+        },
+        {
+          "title": "Would you like to go back to the main menu? 🙂",
+          "replies": [
+            "Main menu please 💭",
+            "No thanks ❌"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

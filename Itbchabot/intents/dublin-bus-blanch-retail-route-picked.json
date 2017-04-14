@@ -1,0 +1,174 @@
+{
+  "userSays": [
+    {
+      "id": "121b6315-54a4-4e4e-89ad-89619878070d",
+      "data": [
+        {
+          "text": "76A",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": true
+        },
+        {
+          "text": " to Tallaght"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e62662ec-ec45-4b30-9959-59062dd9341b",
+      "data": [
+        {
+          "text": "39",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "Burlington Rd",
+          "meta": "@sys.ignore",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "a1aee6a2-fd3b-4f19-925d-c4b16bfa65af",
+      "data": [
+        {
+          "text": "37",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "Wilton Terrace",
+          "meta": "@sys.ignore",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "065afd2c-37a7-45e8-a563-352493ba2aef",
+      "data": [
+        {
+          "text": "238",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Tyrellstown"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "3966a606-6a4d-4a60-9bc1-81713637d16d",
+      "data": [
+        {
+          "text": "220",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Ballymun"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "250e623a-bf85-4258-b945-74631305e558",
+      "data": [
+        {
+          "text": "17A",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to Kilbarrack"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "4eb81d3d-6662-41af-8208-58b1db43d9c8",
+      "data": [
+        {
+          "text": "39A",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " to UCD"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "dc15979a-df0f-46d3-84ff-dac1f615deff",
+      "data": [
+        {
+          "text": "All",
+          "alias": "bus_id",
+          "meta": "@blanch-retail-side-busses",
+          "userDefined": false
+        },
+        {
+          "text": " Routes 📍"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "34db0a45-4407-446d-9937-311101595a4a",
+  "name": "dublin-bus-blanch-retail-route-picked",
+  "auto": true,
+  "contexts": [
+    "blanch-retail-side-route-picked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "blanch-retail-side-route-picked",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@blanch-retail-side-busses",
+          "name": "bus_id",
+          "value": "$bus_id",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

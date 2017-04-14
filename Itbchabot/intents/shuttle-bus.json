@@ -1,0 +1,96 @@
+{
+  "userSays": [
+    {
+      "id": "71536589-934e-429e-861b-b023e2baa7e3",
+      "data": [
+        {
+          "text": "What are the times for the shuttle bus?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "5ca16362-cab7-4112-bb11-c1a92e7ed400",
+      "data": [
+        {
+          "text": "When are the shuttle bus times?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "9b13931f-a49e-4427-9e85-7923226e90df",
+      "data": [
+        {
+          "text": "Can you give me the times for the shuttle bus?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "d8ceeed2-1c8d-4faf-b217-052d1c42ae75",
+      "data": [
+        {
+          "text": "give me the shuttle bus times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "82681369-92fc-45d4-afea-d529c1ce5ec8",
+      "data": [
+        {
+          "text": "Give me the times for the shuttle bus."
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "0ab83648-770c-4434-8815-d9d2719a73dc",
+      "data": [
+        {
+          "text": "Can i have the shuttle bus times?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "a99a12f9-6bc7-4b38-a57c-2e868c6ff81a",
+  "name": "shuttle-bus",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "shuttle-bus",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "title": "Where do you want to get it from?🤔",
+          "replies": [
+            "ITB to the centre",
+            "The centre to ITB"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

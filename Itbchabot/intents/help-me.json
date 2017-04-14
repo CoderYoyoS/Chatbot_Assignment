@@ -1,0 +1,155 @@
+{
+  "userSays": [
+    {
+      "id": "65a9b697-8143-44e8-8c10-53d94050293f",
+      "data": [
+        {
+          "text": "main menu"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "a7dac8e2-3cfc-4ccd-8f70-c30ddf500c59",
+      "data": [
+        {
+          "text": "show me the menu list"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "7d7ebc6c-687f-49fc-b63e-0ae724a00a39",
+      "data": [
+        {
+          "text": "Can you give me the main menu please?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "28e7b165-c36d-43bd-835d-57980b208e29",
+      "data": [
+        {
+          "text": "what can you do?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "ad32a701-38d8-4fda-bb25-6a815d5798b3",
+      "data": [
+        {
+          "text": "i need your help"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "0ace75b3-fed1-49fb-9e6e-8930721b50d7",
+      "data": [
+        {
+          "text": "can you give me a hand?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "e1e482cd-841d-4661-8c09-4ea4c887b7d1",
+      "data": [
+        {
+          "text": "help me"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "05cdb341-802f-418f-92c6-bdd1aaa63586",
+      "data": [
+        {
+          "text": "help"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "abc81633-6969-4175-83d2-6d87d0466787",
+      "data": [
+        {
+          "text": "i need assistance"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "de862f36-f534-425d-852d-8463de0600ef",
+      "data": [
+        {
+          "text": "i need help"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "c9e00d7c-0526-4815-ba73-d6dc4adfc378",
+      "data": [
+        {
+          "text": "Help me please"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "9010fa02-ee68-49a3-b644-4008a91e4bfe",
+  "name": "help-me",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Here\u0027s a list of things i can do :)"
+        },
+        {
+          "type": 0,
+          "speech": [
+            "- Provide Dublin bus times🚏\n- Give the shuttle bus times 🚌\n- Give gym information 🏋️\n- Library information 📚\n- Show the college websites 💻",
+            "",
+            ""
+          ]
+        },
+        {
+          "title": "What do you need?",
+          "replies": [
+            "Dublin bus",
+            "Shuttle bus",
+            "Gym",
+            "Library",
+            "College websites"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,46 @@
+{
+  "userSays": [
+    {
+      "id": "86ad9b6d-17fe-4e9d-9bb4-f954cd205bb7",
+      "data": [
+        {
+          "text": "I want to know about my print credit"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "54be453c-50da-4a16-b0b6-c401497bc442",
+  "name": "library-print-credit",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "library-print",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "title": "Do you want to check you balance or top up your account?🖨️",
+          "replies": [
+            "Check my balance",
+            "Top up account"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

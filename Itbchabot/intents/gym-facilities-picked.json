@@ -1,0 +1,39 @@
+{
+  "userSays": [
+    {
+      "id": "b8e102f9-8760-4963-a509-f191535fa814",
+      "data": [
+        {
+          "text": "Facilities"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "4c75b99f-ecb4-4aa2-b5ec-f66c7d4baa16",
+  "name": "gym-facilities-picked",
+  "auto": true,
+  "contexts": [
+    "Gym-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "gym-facilities-picked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

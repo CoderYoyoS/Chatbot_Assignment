@@ -1,0 +1,41 @@
+{
+  "userSays": [
+    {
+      "id": "79f296ea-c398-48fe-84d2-cd33b349efcb",
+      "data": [
+        {
+          "text": "No Thanks"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "3aa73c9d-35bc-4d93-aac3-0abaad5426f4",
+  "name": "no-thanks",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "No problem 😊 just ask for help when ever you need me again",
+            "Cool, im alway here when you need me",
+            "Just ask for help when when you want to know anything else",
+            "No problem 🙂 always here to help"
+          ]
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

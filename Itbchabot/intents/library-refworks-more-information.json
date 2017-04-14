@@ -1,0 +1,34 @@
+{
+  "userSays": [
+    {
+      "id": "e07a987f-ef41-4019-a927-b5740e5176a9",
+      "data": [
+        {
+          "text": "More Information"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "ef34ded9-480b-46f1-a119-2a9767ae825c",
+  "name": "library-refworks-more-information",
+  "auto": true,
+  "contexts": [
+    "library-refworks-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "library-refworks-more-information-clicked",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

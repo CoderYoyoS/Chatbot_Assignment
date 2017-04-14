@@ -1,0 +1,81 @@
+{
+  "userSays": [
+    {
+      "id": "4edcf693-daf8-4d4a-be73-be3aff297275",
+      "data": [
+        {
+          "text": "What time is the library closed at?"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "bf5f960e-d005-4ff0-a82d-69262010cf0b",
+      "data": [
+        {
+          "text": "What time does the library open at"
+        },
+        {
+          "text": "?",
+          "meta": "@sys.ignore",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "3a6e5534-a13b-46d6-8cc1-bb1101478221",
+      "data": [
+        {
+          "text": "Opening times"
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "03590161-7acf-4a98-8220-0924b5d617de",
+  "name": "library-opening-times",
+  "auto": true,
+  "contexts": [
+    "library-clicked"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": [
+            "Here are the opening times for the library",
+            "Here you go 🕗",
+            "No problem.. Here are the opening times 👍",
+            "Opening Times"
+          ]
+        },
+        {
+          "type": 0,
+          "speech": "Mon - Thur : 9.15am to 8pm\nFriday: 9:15am to 5pm"
+        },
+        {
+          "title": "Want more library information?",
+          "replies": [
+            "More library info 📘",
+            "Main Menu 💭",
+            "No thanks 🙅"
+          ],
+          "type": 2
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

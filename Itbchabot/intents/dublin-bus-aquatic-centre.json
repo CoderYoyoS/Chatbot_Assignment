@@ -1,0 +1,108 @@
+{
+  "userSays": [
+    {
+      "id": "f9579573-010d-46d7-8e22-1b5c89702e2b",
+      "data": [
+        {
+          "text": "Aquatic Centre",
+          "alias": "bus_areas",
+          "meta": "@bus-areas",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 1
+    }
+  ],
+  "id": "9cf0d33a-3ba0-4e5d-8e0c-0ca13f60bca9",
+  "name": "dublin-bus-aquatic-centre",
+  "auto": true,
+  "contexts": [
+    "dublin-bus"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pick-aquatic-centre-route",
+      "affectedContexts": [
+        {
+          "name": "pick-aquatic-centre-route",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "dataType": "@bus-areas",
+          "name": "bus_areas",
+          "value": "$bus_areas",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "Which bus do you want? 🤔",
+                      "image_url": "http://www.touristindublin.com/wp-content/uploads/2013/10/nac2.jpg"
+                    }
+                  ]
+                }
+              },
+              "quick_replies": [
+                {
+                  "content_type": "text",
+                  "title": "All Routes🚌",
+                  "payload": "All Routes🚌"
+                },
+                {
+                  "content_type": "text",
+                  "title": "17A to Blanch Centre",
+                  "payload": "17A to Blanch Centre"
+                },
+                {
+                  "content_type": "text",
+                  "title": "236 to Damastown",
+                  "payload": "236 to Ladys Well"
+                },
+                {
+                  "content_type": "text",
+                  "title": "38 to Burlington Rd",
+                  "payload": "38 to Burlington Rd"
+                },
+                {
+                  "content_type": "text",
+                  "title": "38A to Burlington Rd",
+                  "payload": "38A to Burlington Rd"
+                }
+              ]
+            },
+            "kik": {
+              "type": "",
+              "body": ""
+            },
+            "slack": {
+              "text": "",
+              "attachments": []
+            },
+            "telegram": {
+              "text": ""
+            }
+          },
+          "type": 4
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,114 @@
+{
+  "userSays": [
+    {
+      "id": "c93e945a-8a02-4685-8eff-ccffad529666",
+      "data": [
+        {
+          "text": "Monday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "67436283-d7c2-4cd8-a6d7-a091337f17b4",
+      "data": [
+        {
+          "text": "Sunday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "a34cde90-fc2c-4247-b0c4-fe3668a082db",
+      "data": [
+        {
+          "text": "Saturday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "5481a047-d7f0-4fed-b3dc-6a3afbac8d4d",
+      "data": [
+        {
+          "text": "Friday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "07ded669-a2e8-45f9-9e9e-d43b2f5101bb",
+      "data": [
+        {
+          "text": "Thursday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    },
+    {
+      "id": "af26d041-c5e3-47b0-b57e-c9eb66c6e49f",
+      "data": [
+        {
+          "text": "Tuesday",
+          "alias": "gym_days",
+          "meta": "@gym-days",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false,
+      "count": 0
+    }
+  ],
+  "id": "fda04435-161b-4e66-b069-0b772b8f4eaa",
+  "name": "gym-class-times-days-picked",
+  "auto": true,
+  "contexts": [
+    "gym-class-days"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "gym-class-times-days-picked",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@gym-days",
+          "name": "gym_days",
+          "value": "$gym_days",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "speech": []
+        }
+      ]
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}
