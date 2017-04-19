@@ -276,6 +276,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		case "gym-facilities-picked":
 				getGymInfo(sender, action, null);
 			break;
+		case "gym-join-picked" :
+				getGymInfo(sender, action, null);
+			break;
 		/****************************************************/
 		default:
 			//unhandled action, just send back the text
@@ -829,6 +832,12 @@ function getGymInfo(recipientId, action, day){
 			method : "GET"
 		}
 	}
+	else if(action = "gym-join-picked"){
+		options = {
+			url: "https://brianapi.herokuapp.com/gym/join/",
+			method : "GET"
+		}
+	}
 	//user wants to see facilities
 	else{
 		options = {
@@ -836,7 +845,6 @@ function getGymInfo(recipientId, action, day){
 			method : "GET"
 		}
 	}
-
 
 	/**
 	 * Deal with response from API
