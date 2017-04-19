@@ -913,7 +913,7 @@ function getLibraryInfo(recipientId, action){
 	//User wants more information on refworks
 	else if(action == 'library-refworks-more-information-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/library/refworks/moreinformation", 
+			url: "https://daireapi.herokuapp.com/library/refworks/moreinfo", 
 			method : "GET"
 		}
 	}
