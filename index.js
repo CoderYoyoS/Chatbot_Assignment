@@ -839,7 +839,7 @@ function getGymInfo(recipientId, action, day){
 		}
 	}
 	//user wants to see facilities
-	else if (action = "gym-facilities-picked"){
+	else {
 		options = {
 			url: "https://brianapi.herokuapp.com/gym/facilities/",
 			method : "GET"
