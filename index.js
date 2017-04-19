@@ -811,28 +811,28 @@ function getGymInfo(recipientId, action, day){
 	//user picks class days
 	if(action == "gym-class-times-days-picked"){
 		options = {
-			url: "https://brianapi.herokuapp.com/gym/gym/classes/" + day, 
+			url: "https://brianapi.herokuapp.com/gym/classes/" + day, 
 			method : "GET"
 		}
 	}
 	//user picks opening times
 	else if (action == "gym-opening-times-picked"){
 		options = {
-			url: "https://brianapi.herokuapp.com/gym/gym/openingtimes/",
+			url: "https://brianapi.herokuapp.com/gym/openingtimes/",
 			method : "GET"
 		}
 	}
 	//User wants to see gym equipment
 	else if(action == "gym-equipment-picked"){
 		options = {
-			url: "https://brianapi.herokuapp.com/gym/gym/equipment/",
+			url: "https://brianapi.herokuapp.com/gym/equipment/",
 			method : "GET"
 		}
 	}
 	//user wants to see facilities
 	else{
 		options = {
-			url: "https://brianapi.herokuapp.com/gym/gym/facilities/",
+			url: "https://brianapi.herokuapp.com/gym/facilities/",
 			method : "GET"
 		}
 	}
