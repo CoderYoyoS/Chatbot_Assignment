@@ -846,7 +846,7 @@ function getGymInfo(recipientId, action, day){
 		}
 	}
 
-	console.log("------" + options + "---------");
+	console.log("------" + options.url + "---------");
 
 	/**
 	 * Deal with response from API
