@@ -916,7 +916,7 @@ function getLibraryInfo(recipientId, action){
 	//User wants link to sign up for refworks
 	else if (action == 'library-refworks-sign-up-clicked'){
 		options = {
-			url: "https://daireapi.herokuapp.com/library/refwork/signup", 
+			url: "https://daireapi.herokuapp.com/library/refworks/signup", 
 			method : "GET"
 		}
 	}
